@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.6.4
--- https://www.phpmyadmin.net/
+-- version 4.0.10deb1
+-- http://www.phpmyadmin.net
 --
--- Host: 127.0.0.1
--- Generation Time: Oct 04, 2017 at 04:30 AM
--- Server version: 5.7.14
--- PHP Version: 7.0.10
+-- Host: localhost
+-- Generation Time: Oct 04, 2017 at 04:23 PM
+-- Server version: 5.5.57-0ubuntu0.14.04.1
+-- PHP Version: 5.5.9-1ubuntu4.22
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -14,7 +14,7 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
+/*!40101 SET NAMES utf8 */;
 
 --
 -- Database: `wc`
@@ -23,18 +23,43 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `blogs`
+--
+
+CREATE TABLE IF NOT EXISTS `blogs` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `language_id` int(11) NOT NULL,
+  `title` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `content` longtext COLLATE utf8_bin,
+  `meta_title` varchar(200) COLLATE utf8_bin DEFAULT NULL,
+  `meta_keyword` varchar(200) COLLATE utf8_bin DEFAULT NULL,
+  `url` varchar(100) COLLATE utf8_bin DEFAULT NULL,
+  `is_active` tinyint(1) DEFAULT NULL,
+  `created` datetime DEFAULT NULL,
+  `modified` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `cms_pages`
 --
 
-CREATE TABLE `cms_pages` (
-  `id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `cms_pages` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `language_id` int(11) DEFAULT NULL,
+  `content` longtext COLLATE utf8_bin NOT NULL,
   `slug` varchar(20) COLLATE utf8_bin DEFAULT NULL,
   `seo_url` varchar(50) COLLATE utf8_bin DEFAULT NULL,
   `header` varchar(100) COLLATE utf8_bin DEFAULT NULL,
   `meta_title` varchar(100) COLLATE utf8_bin DEFAULT NULL,
-  `meta_keyword` varchar(200) COLLATE utf8_bin DEFAULT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+  `meta_keyword` varchar(200) COLLATE utf8_bin DEFAULT NULL,
+  `is_active` tinyint(1) NOT NULL,
+  `created` datetime NOT NULL,
+  `modified` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=2 ;
 
 -- --------------------------------------------------------
 
@@ -42,14 +67,31 @@ CREATE TABLE `cms_pages` (
 -- Table structure for table `languages`
 --
 
-CREATE TABLE `languages` (
-  `id` int(11) NOT NULL,
-  `l_name` varchar(50) COLLATE utf8_bin DEFAULT NULL,
-  `l_code` varchar(20) COLLATE utf8_bin DEFAULT NULL,
+CREATE TABLE IF NOT EXISTS `languages` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(150) COLLATE utf8_bin DEFAULT NULL,
+  `short_code` varchar(20) COLLATE utf8_bin DEFAULT NULL,
+  `is_active` tinyint(4) DEFAULT NULL,
+  `created` datetime DEFAULT NULL,
+  `modified` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `locations`
+--
+
+CREATE TABLE IF NOT EXISTS `locations` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(150) COLLATE utf8_bin DEFAULT NULL,
+  `short_code` varchar(20) COLLATE utf8_bin DEFAULT NULL,
   `is_active` tinyint(1) DEFAULT NULL,
   `created` datetime DEFAULT NULL,
-  `modified` datetime DEFAULT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+  `modified` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -57,8 +99,8 @@ CREATE TABLE `languages` (
 -- Table structure for table `users`
 --
 
-CREATE TABLE `users` (
-  `id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `users` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `username` varchar(255) COLLATE utf8_bin NOT NULL,
   `password` varchar(255) COLLATE utf8_bin NOT NULL,
   `is_active` tinyint(1) NOT NULL,
@@ -67,8 +109,9 @@ CREATE TABLE `users` (
   `confirmation_token` varchar(255) COLLATE utf8_bin DEFAULT NULL,
   `password_token` varchar(255) COLLATE utf8_bin DEFAULT NULL,
   `created` datetime DEFAULT NULL,
-  `modified` datetime DEFAULT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+  `modified` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=2 ;
 
 --
 -- Dumping data for table `users`
@@ -83,14 +126,15 @@ INSERT INTO `users` (`id`, `username`, `password`, `is_active`, `is_delete`, `is
 -- Table structure for table `user_details`
 --
 
-CREATE TABLE `user_details` (
-  `id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `user_details` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `user_id` int(11) DEFAULT NULL,
   `details` text COLLATE utf8_bin,
   `name` varchar(255) COLLATE utf8_bin DEFAULT NULL,
   `created` datetime DEFAULT NULL,
-  `modified` datetime DEFAULT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+  `modified` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=2 ;
 
 --
 -- Dumping data for table `user_details`
@@ -99,58 +143,6 @@ CREATE TABLE `user_details` (
 INSERT INTO `user_details` (`id`, `user_id`, `details`, `name`, `created`, `modified`) VALUES
 (1, 1, NULL, 'Admin User', NULL, NULL);
 
---
--- Indexes for dumped tables
---
-
---
--- Indexes for table `cms_pages`
---
-ALTER TABLE `cms_pages`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `languages`
---
-ALTER TABLE `languages`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `users`
---
-ALTER TABLE `users`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `user_details`
---
-ALTER TABLE `user_details`
-  ADD PRIMARY KEY (`id`);
-
---
--- AUTO_INCREMENT for dumped tables
---
-
---
--- AUTO_INCREMENT for table `cms_pages`
---
-ALTER TABLE `cms_pages`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT for table `languages`
---
-ALTER TABLE `languages`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT for table `users`
---
-ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
---
--- AUTO_INCREMENT for table `user_details`
---
-ALTER TABLE `user_details`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
