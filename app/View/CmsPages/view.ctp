@@ -8,7 +8,12 @@
 		</dd>
 		<dt><?php echo __('Language'); ?></dt>
 		<dd>
-			<?php echo $this->Html->link($cmsPage['Language']['id'], array('controller' => 'languages', 'action' => 'view', $cmsPage['Language']['id'])); ?>
+			<?php echo $this->Html->link($cmsPage['Language']['name'], array('controller' => 'languages', 'action' => 'view', $cmsPage['Language']['id'])); ?>
+			&nbsp;
+		</dd>
+		<dt><?php echo __('Content'); ?></dt>
+		<dd>
+			<?php echo h($cmsPage['CmsPage']['content']); ?>
 			&nbsp;
 		</dd>
 		<dt><?php echo __('Slug'); ?></dt>
@@ -34,6 +39,21 @@
 		<dt><?php echo __('Meta Keyword'); ?></dt>
 		<dd>
 			<?php echo h($cmsPage['CmsPage']['meta_keyword']); ?>
+			&nbsp;
+		</dd>
+		<dt><?php echo __('Is Active'); ?></dt>
+		<dd>
+			<?php echo h($cmsPage['CmsPage']['is_active']); ?>
+			&nbsp;
+		</dd>
+		<dt><?php echo __('Created'); ?></dt>
+		<dd>
+			<?php echo h($cmsPage['CmsPage']['created']); ?>
+			&nbsp;
+		</dd>
+		<dt><?php echo __('Modified'); ?></dt>
+		<dd>
+			<?php echo h($cmsPage['CmsPage']['modified']); ?>
 			&nbsp;
 		</dd>
 	</dl>

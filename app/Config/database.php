@@ -72,7 +72,7 @@ class DATABASE_CONFIG {
 		'host' => 'localhost',
 		//'login' => 'zestminds_wc',
 		'login' => 'root',
-		'password' => '',
+		'password' => '123456',
 		'database' => 'wc',
 		'prefix' => '',
 		'encoding' => 'utf8',

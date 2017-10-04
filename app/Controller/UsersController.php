@@ -32,6 +32,7 @@ class UsersController extends AppController {
 	
 	
 	public function login() {
+		//$this->Auth->password("123456");
 		if ( $this->request->is("post") ) {
 			if ( $this->Auth->login() ) {
 				$user = $this->Session->read("Auth");

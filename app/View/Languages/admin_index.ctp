@@ -4,8 +4,8 @@
 	<thead>
 	<tr>
 			<th><?php echo $this->Paginator->sort('id'); ?></th>
-			<th><?php echo $this->Paginator->sort('l_name'); ?></th>
-			<th><?php echo $this->Paginator->sort('l_code'); ?></th>
+			<th><?php echo $this->Paginator->sort('name'); ?></th>
+			<th><?php echo $this->Paginator->sort('short_code'); ?></th>
 			<th><?php echo $this->Paginator->sort('is_active'); ?></th>
 			<th><?php echo $this->Paginator->sort('created'); ?></th>
 			<th><?php echo $this->Paginator->sort('modified'); ?></th>
@@ -16,8 +16,8 @@
 	<?php foreach ($languages as $language): ?>
 	<tr>
 		<td><?php echo h($language['Language']['id']); ?>&nbsp;</td>
-		<td><?php echo h($language['Language']['l_name']); ?>&nbsp;</td>
-		<td><?php echo h($language['Language']['l_code']); ?>&nbsp;</td>
+		<td><?php echo h($language['Language']['name']); ?>&nbsp;</td>
+		<td><?php echo h($language['Language']['short_code']); ?>&nbsp;</td>
 		<td><?php echo h($language['Language']['is_active']); ?>&nbsp;</td>
 		<td><?php echo h($language['Language']['created']); ?>&nbsp;</td>
 		<td><?php echo h($language['Language']['modified']); ?>&nbsp;</td>

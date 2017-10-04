@@ -1,4 +1,5 @@
 <?php $admin = $this->Session->read('Auth'); ?>
+<?php //pr($this->Session->read("User")); ?>
 <div class="admin_header">
 	<?php if (!empty($admin)) { 
 		 $logo_img = $this->Html->image('logo.png',array('class'=>'logo_nothome'));
@@ -8,7 +9,7 @@
 	} ?>
 	
     <?php if (!empty($admin)) {  ?>        
-    <h2 class="user-name">Hi! <?php echo $this->Session->read("User.Userdetail.name"); ?>
+    <h2 class="user-name">Hi! <?php echo $this->Session->read("User.UserDetail.name"); ?>
             <?php echo $this->Html->link('Logout', SITE_LINK.'/logout'); ?></h2>
         <div class="clear"></div>
     <?php } ?>        

@@ -5,11 +5,15 @@
 	<tr>
 			<th><?php echo $this->Paginator->sort('id'); ?></th>
 			<th><?php echo $this->Paginator->sort('language_id'); ?></th>
+			<th><?php echo $this->Paginator->sort('content'); ?></th>
 			<th><?php echo $this->Paginator->sort('slug'); ?></th>
 			<th><?php echo $this->Paginator->sort('seo_url'); ?></th>
 			<th><?php echo $this->Paginator->sort('header'); ?></th>
 			<th><?php echo $this->Paginator->sort('meta_title'); ?></th>
 			<th><?php echo $this->Paginator->sort('meta_keyword'); ?></th>
+			<th><?php echo $this->Paginator->sort('is_active'); ?></th>
+			<th><?php echo $this->Paginator->sort('created'); ?></th>
+			<th><?php echo $this->Paginator->sort('modified'); ?></th>
 			<th class="actions"><?php echo __('Actions'); ?></th>
 	</tr>
 	</thead>
@@ -18,13 +22,17 @@
 	<tr>
 		<td><?php echo h($cmsPage['CmsPage']['id']); ?>&nbsp;</td>
 		<td>
-			<?php echo $this->Html->link($cmsPage['Language']['id'], array('controller' => 'languages', 'action' => 'view', $cmsPage['Language']['id'])); ?>
+			<?php echo $this->Html->link($cmsPage['Language']['name'], array('controller' => 'languages', 'action' => 'view', $cmsPage['Language']['id'])); ?>
 		</td>
+		<td><?php echo h($cmsPage['CmsPage']['content']); ?>&nbsp;</td>
 		<td><?php echo h($cmsPage['CmsPage']['slug']); ?>&nbsp;</td>
 		<td><?php echo h($cmsPage['CmsPage']['seo_url']); ?>&nbsp;</td>
 		<td><?php echo h($cmsPage['CmsPage']['header']); ?>&nbsp;</td>
 		<td><?php echo h($cmsPage['CmsPage']['meta_title']); ?>&nbsp;</td>
 		<td><?php echo h($cmsPage['CmsPage']['meta_keyword']); ?>&nbsp;</td>
+		<td><?php echo h($cmsPage['CmsPage']['is_active']); ?>&nbsp;</td>
+		<td><?php echo h($cmsPage['CmsPage']['created']); ?>&nbsp;</td>
+		<td><?php echo h($cmsPage['CmsPage']['modified']); ?>&nbsp;</td>
 		<td class="actions">
 			<?php echo $this->Html->link(__('View'), array('action' => 'view', $cmsPage['CmsPage']['id'])); ?>
 			<?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $cmsPage['CmsPage']['id'])); ?>

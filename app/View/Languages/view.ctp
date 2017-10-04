@@ -6,14 +6,14 @@
 			<?php echo h($language['Language']['id']); ?>
 			&nbsp;
 		</dd>
-		<dt><?php echo __('L Name'); ?></dt>
+		<dt><?php echo __('Name'); ?></dt>
 		<dd>
-			<?php echo h($language['Language']['l_name']); ?>
+			<?php echo h($language['Language']['name']); ?>
 			&nbsp;
 		</dd>
-		<dt><?php echo __('L Code'); ?></dt>
+		<dt><?php echo __('Short Code'); ?></dt>
 		<dd>
-			<?php echo h($language['Language']['l_code']); ?>
+			<?php echo h($language['Language']['short_code']); ?>
 			&nbsp;
 		</dd>
 		<dt><?php echo __('Is Active'); ?></dt>
@@ -51,22 +51,30 @@
 	<tr>
 		<th><?php echo __('Id'); ?></th>
 		<th><?php echo __('Language Id'); ?></th>
+		<th><?php echo __('Content'); ?></th>
 		<th><?php echo __('Slug'); ?></th>
 		<th><?php echo __('Seo Url'); ?></th>
 		<th><?php echo __('Header'); ?></th>
 		<th><?php echo __('Meta Title'); ?></th>
 		<th><?php echo __('Meta Keyword'); ?></th>
+		<th><?php echo __('Is Active'); ?></th>
+		<th><?php echo __('Created'); ?></th>
+		<th><?php echo __('Modified'); ?></th>
 		<th class="actions"><?php echo __('Actions'); ?></th>
 	</tr>
 	<?php foreach ($language['CmsPage'] as $cmsPage): ?>
 		<tr>
 			<td><?php echo $cmsPage['id']; ?></td>
 			<td><?php echo $cmsPage['language_id']; ?></td>
+			<td><?php echo $cmsPage['content']; ?></td>
 			<td><?php echo $cmsPage['slug']; ?></td>
 			<td><?php echo $cmsPage['seo_url']; ?></td>
 			<td><?php echo $cmsPage['header']; ?></td>
 			<td><?php echo $cmsPage['meta_title']; ?></td>
 			<td><?php echo $cmsPage['meta_keyword']; ?></td>
+			<td><?php echo $cmsPage['is_active']; ?></td>
+			<td><?php echo $cmsPage['created']; ?></td>
+			<td><?php echo $cmsPage['modified']; ?></td>
 			<td class="actions">
 				<?php echo $this->Html->link(__('View'), array('controller' => 'cms_pages', 'action' => 'view', $cmsPage['id'])); ?>
 				<?php echo $this->Html->link(__('Edit'), array('controller' => 'cms_pages', 'action' => 'edit', $cmsPage['id'])); ?>

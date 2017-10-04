@@ -885,7 +885,7 @@ div.code-coverage-results span.result-good {
 /** Top header **/
 
 div.co-head{ float:left;  }
-h2.user-name{ font-size:14px;font-family:arial; color:#323232; background:none; display:inline; float:right; line-height:0px;margin: 39px 20px 0 0;}
+h2.user-name{ font-size:14px;font-family:arial; color:#ffffff; background:none; display:inline; float:right; line-height:0px;margin: 39px 20px 0 0;}
 ul.cat-menu{ margin:0px; padding:0px; list-style:none; margin-bottom:10px; float:right;}
 ul.cat-menu:after{ clear:both;}
 ul.cat-menu  > li{ background: #ffffff; /* Old browsers */

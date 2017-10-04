@@ -34,6 +34,10 @@
 	Router::connect('/logout', array('controller' => 'users', 'action' => 'logout'));
 	Router::connect('/manager', array('controller' => 'users', 'action' => 'dashboard',"admin"=>"true"));
 	Router::connect('/ad-change-password', array('controller' => 'users', 'action' => 'changepassword',"admin"=>"true"));
+	Router::connect('/ad-locations', array('controller' => 'locations', 'action' => 'index',"admin"=>"true"));
+	Router::connect('/ad-languages', array('controller' => 'languages', 'action' => 'index',"admin"=>"true"));
+	Router::connect('/ad-cmspages', array('controller' => 'cmsPages', 'action' => 'index',"admin"=>"true"));
+	Router::connect('/ad-blogs', array('controller' => 'blogs', 'action' => 'index',"admin"=>"true"));
 
 /**
  * Load all plugin routes. See the CakePlugin documentation on

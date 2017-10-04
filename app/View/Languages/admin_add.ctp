@@ -3,8 +3,8 @@
 	<fieldset>
 		<legend><?php echo __('Add Language'); ?></legend>
 	<?php
-		echo $this->Form->input('l_name');
-		echo $this->Form->input('l_code');
+		echo $this->Form->input('name');
+		echo $this->Form->input('short_code');
 		echo $this->Form->input('is_active');
 	?>
 	</fieldset>
