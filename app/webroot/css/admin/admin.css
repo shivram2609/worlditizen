@@ -329,7 +329,7 @@ table {
 th {
     border:0;
     border-bottom:1px solid #dfdfdf;
-    text-align:center;
+    text-align:left;
     padding:4px;
     background: #ededed; /* Old browsers */
     background: -moz-linear-gradient(top,  #ededed 0%, #dfdfdf 100%); /* FF3.6+ */
@@ -363,7 +363,7 @@ th a.desc:after {
 table tr td {
     background: #fff;
     padding: 6px;
-    text-align: center;
+    text-align: left;
     vertical-align: top;
     border-bottom:1px solid #ddd;
 }

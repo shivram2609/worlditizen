@@ -12,5 +12,21 @@ class Location extends AppModel {
  * @var string
  */
 	public $displayField = 'name';
+	
+	public $validate = array (
+		"name" => array (
+			"notempty" => array (
+				"rule" => "notBlank",
+				"message" => "Please enter location name."
+			)
+		),
+		"short_code" => array (
+			"notempty" => array (
+				"rule" => "notBlank",
+				"message" => "Please enter short code."
+			)
+		),
+	);
+		
 
 }

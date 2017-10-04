@@ -34,6 +34,7 @@ class AppController extends Controller {
 	
 	public $components = array(
 	"Session",
+	"Flash",
 	'Auth' => array(
 			'loginAction' => array(
 				'controller' => 'users',
@@ -52,9 +53,13 @@ class AppController extends Controller {
 		)
 	);
 	
+	var $conditions = array();
+	var $delarr = array();
+	var $updatearr = array();
+	
 	function beforefilter() {
 		if (!defined('SITE_LINK')) { 
-			define('SITE_LINK',"http://localhost/worldcitizen/");
+			define('SITE_LINK',"http://localhost/worlditizen/");
 		}
 		$this->Auth->scope = array('User.is_active' =>1);
 		if ($this->params['prefix']) {
@@ -69,5 +74,71 @@ class AppController extends Controller {
 		$this->loadModel("User");
 		$temp = $this->User->find("first",array("conditions"=>array("User.id"=>$id)));
 		$this->Session->write("User",$temp);
+	}
+	
+	function bulkactions($flag = false) {
+		//pr($this->data);
+		//die;
+		/* code to change status and delete by checking data from page */
+		$controller = is_array($this->data)?array_keys($this->data):'';
+		$statuskey  = '';
+		$controller = isset($controller[0])?$controller[0]:'';
+		$allowedarr = array("Account","User");
+		if (isset($this->data[$controller]) && !empty($this->data[$controller]['options']) && !empty($controller) && !empty($this->data['id'])) {
+			//pr($this->data);
+			//die;
+			foreach ($this->data['id'] as $key=>$val) {
+				if ($val > 0) {
+					$this->delarr[]	= $key;
+					if ($flag) {
+						$statuskey = ($this->data[$controller]['options']);
+						$this->updatearr[$controller][$key] = array("id"=>$key,"approve"=>($this->data[$controller]['options']));
+					} else {
+						$statuskey = ($this->data[$controller]['options'] == 'Active'?1:0);
+						$this->updatearr[$controller][$key]	= array("id"=>$key,"is_active"=>($this->data[$controller]['options'] == 'Active'?1:0));
+					}
+				}
+			}
+			if (isset($this->data[$controller]['options']) && $this->data[$controller]['options'] == 'Delete') {
+				if($flag == 1){
+					if($this->unlinkDB($this->delarr)){
+						$this->$controller->delete($this->delarr);
+						$this->redirect($this->referer());
+					}
+				}
+				else{
+					if($this->$controller->delete($this->delarr)) {
+						$this->Session->setFlash(__('Record has been deleted successfully.'));
+					}
+					$this->redirect($this->referer());
+				}
+				$statuskey = -1;
+			} else {
+				//pr($this->updatearr[$controller]);
+				//die;
+				//die;
+				$this->$controller->create();
+				if($this->$controller->saveAll($this->updatearr[$controller],array("validate"=>false))) {
+					 $this->Session->setFlash(__('Record has been updated successfully.'));
+				}
+			
+				$this->redirect($this->referer());
+			}
+			if (empty($this->data['Admin']['searchval'])) {
+				$this->data = array();
+			}
+		}
+		if (in_array($controller,$allowedarr) && $statuskey > -1) {
+			$arr['keys'] 	= $this->delarr;
+			$arr['status']  = $statuskey;
+			return $arr; 
+		}
+		if ($flag) {
+			$arr['keys'] = $this->delarr;
+			$arr['status']  = $statuskey;
+			return $arr; 
+		}
+		
+		/* end of code to change status and delete by checking data from page */
 	}
 }

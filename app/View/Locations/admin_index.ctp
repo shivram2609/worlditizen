@@ -1,9 +1,20 @@
+<style>
+.td{align:left;}
+</style>
 <div class="locations index">
 	<h2><?php echo __('Locations'); ?></h2>
+	<?php echo $this->Form->create("Location",array("div"=>false,)); ?>
+	<div class="srch">
+		<?php echo $this->element("admins/common",array("place"=>'Search by Location name',"flag"=>false,"pageheader"=>'',"buttontitle"=>'no',"listflag"=>"no","action"=>'no')); ?>
+		<div class="rhs_actions right">
+			<a href="<?php echo SITE_LINK."ad-new-location"; ?>">Add Location</a>
+			<?php // echo $this->Html->link(__('Add Location'), array('action' => 'add')); ?>
+		</div>
+	</div>
 	<table cellpadding="0" cellspacing="0">
 	<thead>
 	<tr>
-			<th><?php echo $this->Paginator->sort('id'); ?></th>
+			<th><?php echo $this->Form->input("check",array("label"=>false,"div"=>false,"id"=>'checkall',"type"=>'checkbox')); ?></th>
 			<th><?php echo $this->Paginator->sort('name'); ?></th>
 			<th><?php echo $this->Paginator->sort('short_code'); ?></th>
 			<th><?php echo $this->Paginator->sort('is_active'); ?></th>
@@ -15,14 +26,14 @@
 	<tbody>
 	<?php foreach ($locations as $location): ?>
 	<tr>
-		<td><?php echo h($location['Location']['id']); ?>&nbsp;</td>
+		<td><?php echo $this->Form->input("id.".$location['Location']['id'],array("class"=>'chk',"value"=>$location['Location']['id'],"type"=>'checkbox',"div"=>false,"label"=>false)); ?><?php echo $this->Form->input("status.".$location['Location']['id'],array("type"=>'hidden',"value"=>($location['Location']['is_active'] == 1?0:1))); ?></td>
 		<td><?php echo h($location['Location']['name']); ?>&nbsp;</td>
 		<td><?php echo h($location['Location']['short_code']); ?>&nbsp;</td>
-		<td><?php echo h($location['Location']['is_active']); ?>&nbsp;</td>
+		<td><?php echo h(($location['Location']['is_active'])?'Active':'Inactive'); ?>&nbsp;</td>
 		<td><?php echo h($location['Location']['created']); ?>&nbsp;</td>
 		<td><?php echo h($location['Location']['modified']); ?>&nbsp;</td>
 		<td class="actions">
-			<?php echo $this->Html->link(__('View'), array('action' => 'view', $location['Location']['id'])); ?>
+			
 			<?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $location['Location']['id'])); ?>
 			<?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $location['Location']['id']), array('confirm' => __('Are you sure you want to delete # %s?', $location['Location']['id']))); ?>
 		</td>
@@ -43,10 +54,5 @@
 		echo $this->Paginator->next(__('next') . ' >', array(), null, array('class' => 'next disabled'));
 	?>
 	</div>
-</div>
-<div class="actions">
-	<h3><?php echo __('Actions'); ?></h3>
-	<ul>
-		<li><?php echo $this->Html->link(__('New Location'), array('action' => 'add')); ?></li>
-	</ul>
+<?php $this->Form->end(); ?>
 </div>

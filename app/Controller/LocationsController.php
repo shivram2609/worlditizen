@@ -107,9 +107,21 @@ class LocationsController extends AppController {
  *
  * @return void
  */
-	public function admin_index() {
-		$this->Location->recursive = 0;
-		$this->set('locations', $this->Paginator->paginate());
+	public function admin_index($searchval = NULL) {
+		$this->bulkactions();
+		if ( !empty($searchval) ) {
+			$this->set("searchval",$searchval);
+			$this->conditions = array("Location.name like"=> "%".$searchval."%");
+		}
+		if ( $this->request->is("post") ) {
+			if ( !empty($this->data['Location']['searchval']) ) {
+				$this->redirect(SITE_LINK."ad-locations/".$this->data['Location']['searchval']);
+			} else {
+				$this->redirect(SITE_LINK."ad-locations/");
+			}
+		}
+		$this->Location->recursive = -1;
+		$this->set('locations', $this->Paginator->paginate($this->conditions));
 	}
 
 /**
@@ -137,7 +149,7 @@ class LocationsController extends AppController {
 			$this->Location->create();
 			if ($this->Location->save($this->request->data)) {
 				$this->Flash->success(__('The location has been saved.'));
-				return $this->redirect(array('action' => 'index'));
+				return $this->redirect(SITE_LINK."ad-locations");
 			} else {
 				$this->Flash->error(__('The location could not be saved. Please, try again.'));
 			}
