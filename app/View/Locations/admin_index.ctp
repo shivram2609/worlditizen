@@ -54,5 +54,5 @@
 		echo $this->Paginator->next(__('next') . ' >', array(), null, array('class' => 'next disabled'));
 	?>
 	</div>
-<?php $this->Form->end(); ?>
+<?php echo $this->Form->end(); ?>
 </div>

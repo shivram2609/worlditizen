@@ -107,9 +107,21 @@ class LanguagesController extends AppController {
  *
  * @return void
  */
-	public function admin_index() {
-		$this->Language->recursive = 0;
-		$this->set('languages', $this->Paginator->paginate());
+	public function admin_index($searchval = NULL) {
+		$this->bulkactions();
+		if ( !empty($searchval) ) {
+			$this->set("searchval",$searchval);
+			$this->conditions = array("Language.name like"=> "%".$searchval."%");
+		}
+		if ( $this->request->is("post") ) {
+			if ( !empty($this->data['Language']['searchval']) ) {
+				$this->redirect(SITE_LINK."ad-languages/".$this->data['Language']['searchval']);
+			} else {
+				$this->redirect(SITE_LINK."ad-languages/");
+			}
+		}
+		$this->Language->recursive = -1;
+		$this->set('languages', $this->Paginator->paginate($this->conditions));
 	}
 
 /**

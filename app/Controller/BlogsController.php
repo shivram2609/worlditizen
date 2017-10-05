@@ -111,9 +111,21 @@ class BlogsController extends AppController {
  *
  * @return void
  */
-	public function admin_index() {
+	public function admin_index($searchval = NULL) {
+		$this->bulkactions();
+		if ( !empty($searchval) ) {
+			$this->set("searchval",$searchval);
+			$this->conditions = array("Blog.title like"=> "%".$searchval."%");
+		}
+		if ( $this->request->is("post") ) {
+			if ( !empty($this->data['Blog']['searchval']) ) {
+				$this->redirect(SITE_LINK."ad-blogs/".$this->data['Blog']['searchval']);
+			} else {
+				$this->redirect(SITE_LINK."ad-blogs/");
+			}
+		}
 		$this->Blog->recursive = 0;
-		$this->set('blogs', $this->Paginator->paginate());
+		$this->set('blogs', $this->Paginator->paginate($this->conditions));
 	}
 
 /**
@@ -188,7 +200,7 @@ class BlogsController extends AppController {
 		if (!$this->Blog->exists()) {
 			throw new NotFoundException(__('Invalid blog'));
 		}
-		$this->request->allowMethod('post', 'delete');
+		//$this->request->allowMethod('post', 'delete');
 		if ($this->Blog->delete()) {
 			$this->Flash->success(__('The blog has been deleted.'));
 		} else {

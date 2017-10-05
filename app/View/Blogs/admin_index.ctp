@@ -1,15 +1,20 @@
 <div class="blogs index">
 	<h2><?php echo __('Blogs'); ?></h2>
+	<?php echo $this->Form->create("Blog",array("div"=>false,)); ?>
+	<div class="srch">
+		<?php echo $this->element("admins/common",array("place"=>'Search by Blog title',"flag"=>false,"pageheader"=>'',"buttontitle"=>'no',"listflag"=>"no","action"=>'no')); ?>
+		<div class="rhs_actions right">
+			<a href="<?php echo SITE_LINK."ad-new-blog"; ?>">Add Blog</a>
+			<?php // echo $this->Html->link(__('Add Location'), array('action' => 'add')); ?>
+		</div>
+	</div>
 	<table cellpadding="0" cellspacing="0">
 	<thead>
 	<tr>
-			<th><?php echo $this->Paginator->sort('id'); ?></th>
-			<th><?php echo $this->Paginator->sort('language_id'); ?></th>
+			<th><?php echo $this->Form->input("check",array("label"=>false,"div"=>false,"id"=>'checkall',"type"=>'checkbox')); ?></th>
+			<th><?php echo $this->Paginator->sort('language_id',"Language"); ?></th>
 			<th><?php echo $this->Paginator->sort('title'); ?></th>
-			<th><?php echo $this->Paginator->sort('content'); ?></th>
-			<th><?php echo $this->Paginator->sort('meta_title'); ?></th>
-			<th><?php echo $this->Paginator->sort('meta_keyword'); ?></th>
-			<th><?php echo $this->Paginator->sort('url'); ?></th>
+			
 			<th><?php echo $this->Paginator->sort('is_active'); ?></th>
 			<th><?php echo $this->Paginator->sort('created'); ?></th>
 			<th><?php echo $this->Paginator->sort('modified'); ?></th>
@@ -19,22 +24,18 @@
 	<tbody>
 	<?php foreach ($blogs as $blog): ?>
 	<tr>
-		<td><?php echo h($blog['Blog']['id']); ?>&nbsp;</td>
+		<td><?php echo $this->Form->input("id.".$blog['Blog']['id'],array("class"=>'chk',"value"=>$blog['Blog']['id'],"type"=>'checkbox',"div"=>false,"label"=>false)); ?><?php echo $this->Form->input("status.".$blog['Blog']['id'],array("type"=>'hidden',"value"=>($blog['Blog']['is_active'] == 1?0:1))); ?></td>
 		<td>
-			<?php echo $this->Html->link($blog['Language']['name'], array('controller' => 'languages', 'action' => 'view', $blog['Language']['id'])); ?>
+			<?php echo $blog['Language']['name']; ?>
 		</td>
 		<td><?php echo h($blog['Blog']['title']); ?>&nbsp;</td>
-		<td><?php echo h($blog['Blog']['content']); ?>&nbsp;</td>
-		<td><?php echo h($blog['Blog']['meta_title']); ?>&nbsp;</td>
-		<td><?php echo h($blog['Blog']['meta_keyword']); ?>&nbsp;</td>
-		<td><?php echo h($blog['Blog']['url']); ?>&nbsp;</td>
-		<td><?php echo h($blog['Blog']['is_active']); ?>&nbsp;</td>
+		<td><?php echo h(($blog['Blog']['is_active'] == 1)?'Active':'Inactive'); ?>&nbsp;</td>
 		<td><?php echo h($blog['Blog']['created']); ?>&nbsp;</td>
 		<td><?php echo h($blog['Blog']['modified']); ?>&nbsp;</td>
 		<td class="actions">
-			<?php echo $this->Html->link(__('View'), array('action' => 'view', $blog['Blog']['id'])); ?>
+			<?php // echo $this->Html->link(__('View'), array('action' => 'view', $blog['Blog']['id'])); ?>
 			<?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $blog['Blog']['id'])); ?>
-			<?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $blog['Blog']['id']), array('confirm' => __('Are you sure you want to delete # %s?', $blog['Blog']['id']))); ?>
+			<?php echo $this->Html->link(__('Delete'), array('action' => 'delete', $blog['Blog']['id']), array('confirm' => __('Are you sure you want to delete # %s?', $blog['Blog']['id']))); ?>
 		</td>
 	</tr>
 <?php endforeach; ?>
@@ -53,12 +54,5 @@
 		echo $this->Paginator->next(__('next') . ' >', array(), null, array('class' => 'next disabled'));
 	?>
 	</div>
-</div>
-<div class="actions">
-	<h3><?php echo __('Actions'); ?></h3>
-	<ul>
-		<li><?php echo $this->Html->link(__('New Blog'), array('action' => 'add')); ?></li>
-		<li><?php echo $this->Html->link(__('List Languages'), array('controller' => 'languages', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Language'), array('controller' => 'languages', 'action' => 'add')); ?> </li>
-	</ul>
+<?php echo $this->Form->end(); ?>
 </div>

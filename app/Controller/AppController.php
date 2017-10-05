@@ -59,7 +59,7 @@ class AppController extends Controller {
 	
 	function beforefilter() {
 		if (!defined('SITE_LINK')) { 
-			define('SITE_LINK',"http://localhost/worlditizen/");
+			define('SITE_LINK',"http://worldcitizen.zestminds.com/");
 		}
 		$this->Auth->scope = array('User.is_active' =>1);
 		if ($this->params['prefix']) {

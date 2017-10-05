@@ -1,5 +1,5 @@
 <div class="blogs form">
-<?php echo $this->Form->create('Blog'); ?>
+<?php echo $this->Form->create('Blog',array("novalidate"=>true)); ?>
 	<fieldset>
 		<legend><?php echo __('Add Blog'); ?></legend>
 	<?php
@@ -14,12 +14,7 @@
 	</fieldset>
 <?php echo $this->Form->end(__('Submit')); ?>
 </div>
-<div class="actions">
-	<h3><?php echo __('Actions'); ?></h3>
-	<ul>
-
-		<li><?php echo $this->Html->link(__('List Blogs'), array('action' => 'index')); ?></li>
-		<li><?php echo $this->Html->link(__('List Languages'), array('controller' => 'languages', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Language'), array('controller' => 'languages', 'action' => 'add')); ?> </li>
-	</ul>
-</div>
+<?php echo $this->Html->script("ckeditor/ckeditor"); //BlogContent ?>
+<script>
+$(document).ready(function() { CKEDITOR.replace( 'BlogContent'); });
+</script>
