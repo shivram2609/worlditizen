@@ -190,9 +190,21 @@ class UsersController extends AppController {
  *
  * @return void
  */
-	public function admin_index() {
+	public function admin_index($searchval = NULL) {
+		$this->bulkactions();
+		if ( !empty($searchval) ) {
+			$this->set("searchval",$searchval);
+			$this->conditions = array("User.username like"=> "%".$searchval."%");
+		}
+		if ( $this->request->is("post") ) {
+			if ( !empty($this->data['User']['searchval']) ) {
+				$this->redirect(SITE_LINK."ad-users/".$this->data['User']['searchval']);
+			} else {
+				$this->redirect(SITE_LINK."ad-users/");
+			}
+		}
 		$this->User->recursive = 0;
-		$this->set('users', $this->Paginator->paginate());
+		$this->set('users', $this->Paginator->paginate($this->conditions));
 	}
 
 /**

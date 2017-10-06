@@ -1,3 +1,6 @@
+<style>
+.td{align:left;}
+</style>
 <div class="blogs index">
 	<h2><?php echo __('Blogs'); ?></h2>
 	<?php echo $this->Form->create("Blog",array("div"=>false,)); ?>

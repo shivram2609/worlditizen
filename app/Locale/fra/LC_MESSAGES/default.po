@@ -1,0 +1,62 @@
+msgid "CLICK HERE"
+msgstr "CLIQUEZ ICI"
+
+msgid "Read"
+msgstr "Lis"
+
+msgid "Ready to Sign"
+msgstr "Prêt à signer"
+
+
+msgid "The Social Contract"
+msgstr "Le contrat social"
+
+msgid "Learn More"
+msgstr "Apprendre encore plus"
+
+msgid "about Social Contract"
+msgstr "sur le contrat social"
+
+msgid "Choose your language"
+msgstr "Choisissez votre langue"
+
+msgid "© 2017 World Citizen. All Rights Reserved."
+msgstr "© 2017 World Citizen. Tous droits réservés."
+
+msgid "Follow Us On:"
+msgstr "Suivez-nous sur:"
+
+msgid "Blogs"
+msgstr "Blogs"
+
+
+msgid "ContacT Us"
+msgstr "Contactez nous"
+
+msgid "FAQ’s"
+msgstr "FAQ"
+
+msgid "It takes less than a minute"
+msgstr "Il faut moins d'une minute"
+
+
+msgid "Don’t have an account?"
+msgstr "Vous n'avez pas de compte?"
+
+msgid "Sign Up Now"
+msgstr "S'inscrire maintenant"
+
+msgid "Sign In"
+msgstr "Se connecter"
+
+msgid "Email"
+msgstr "Email"
+
+msgid "Password"
+msgstr "Mot de passe"
+
+msgid "Remember Me"
+msgstr "Souviens-toi de moi"
+
+msgid "Forgot Password?"
+msgstr "Mot de passe oublié?"

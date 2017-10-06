@@ -44,7 +44,19 @@ class PagesController extends AppController {
 	
 	
 	function index() {
+		//die("here");
 		$this->layout = "default";
+		$this->getLanguages();
+		if ( $this->request->is("post") ) {
+			$selectedLanguage = $this->getLanguages($this->request->data['Page']['language']);
+			$this->Session->write("selectedLanguage",$selectedLanguage);
+			$this->Session->write('Config.language', $selectedLanguage['Language']['short_code']);
+		}
+		if ( $this->Session->read("selectedLanguage.Language.id") )	{
+			//die("here");
+			$this->request->data['Page']['language'] = $this->Session->read("selectedLanguage.Language.id");
+		}
+		
 	}
 
 /**

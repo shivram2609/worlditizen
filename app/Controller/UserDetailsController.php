@@ -111,9 +111,22 @@ class UserDetailsController extends AppController {
  *
  * @return void
  */
-	public function admin_index() {
+	
+	public function admin_index($searchval = NULL) {
+		$this->bulkactions();
+		if ( !empty($searchval) ) {
+			$this->set("searchval",$searchval);
+			$this->conditions = array("UserDetail.name like"=> "%".$searchval."%");
+		}
+		if ( $this->request->is("post") ) {
+			if ( !empty($this->data['UserDetail']['searchval']) ) {
+				$this->redirect(SITE_LINK."ad-users/".$this->data['UserDetail']['searchval']);
+			} else {
+				$this->redirect(SITE_LINK."ad-users/");
+			}
+		}
 		$this->UserDetail->recursive = 0;
-		$this->set('userDetails', $this->Paginator->paginate());
+		$this->set('userDetails', $this->Paginator->paginate($this->conditions));
 	}
 
 /**

@@ -37,5 +37,48 @@ class User extends AppModel {
 			'counterQuery' => ''
 		)
 	);
+	
+	/* @var array
+ */
+	public $displayField = 'name';
+	
+	public $validate = array (
+	"user_type_id" => array (
+			"notempty" => array (
+				"rule" => "notBlank",
+				"message" => "Please enter User Type."
+			)
+		),
+		"name" => array (
+			"notempty" => array (
+				"rule" => "notBlank",
+				"message" => "Please enter Name."
+			)
+		),
+		"username" => array (
+			"notempty" => array (
+				"rule" => "notBlank",
+				"message" => "Please enter User Name."
+			)
+		),
+		"password" => array (
+			"notempty" => array (
+				"rule" => "notBlank",
+				"message" => "Please enter password."
+			)
+		),
+		"registration_type" => array (
+			"notempty" => array (
+				"rule" => "notBlank",
+				"message" => "Please enter Registration Type."
+			)
+		),
+		"password_token" => array (
+			"notempty" => array (
+				"rule" => "notBlank",
+				"message" => "Please enter Password Token."
+			)
+		),
+	);
 
 }

@@ -29,6 +29,9 @@ if ($this->Session->read("Auth.User.id") && $this->Session->read("Auth.User.is_a
 				<li>
 					<a href="<?php echo $this->Html->url(SITE_LINK.'ad-languages'); ?>" <?php if ($this->params['controller'] == 'languages') { ?> class="active" <?php } ?>>Languages</a>
 				</li> 
+				<li>
+					<a href="<?php echo $this->Html->url(SITE_LINK.'ad-users'); ?>" <?php if ($this->params['controller'] == 'users') { ?> class="active" <?php } ?> >Users </a>
+				</li>
 				 
 			</ul>
 		<?php } ?>

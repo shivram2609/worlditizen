@@ -30,33 +30,32 @@
 		<div class="text-center"><img src="img/home-logo.png" alt="World Citizen" width="504" height="367" class="img-responsive"></div>
         <div class="header-content">
             <div class="header-content-inner">
-                <div class="heading">Read<span>The Social Contract</span></div>
-				<p><a href="javascript:void(0);" title="click here" data-toggle="modal" data-target="#myModal">click here</a></p>
+                <div class="heading"><?php echo __("Read"); ?><span><?php echo __("The Social Contract"); ?></span></div>
+				<p><a href="javascript:void(0);" title="<?php echo __("CLICK HERE"); ?>" data-toggle="modal" data-target="#myModal"><?php echo __("CLICK HERE"); ?></a></p>
             </div>
 			<div class="row">
 				<div class="col-sm-6">
 					<div class="header-content-inner">
-						<div class="heading heading2">Learn More<span>about Social Contract</span></div>
-						<p><a href="javascript:void(0);" title="click here">click here</a></p>
+						<div class="heading heading2"><?php echo __("Learn More");?><span><?php echo __("about Social Contract"); ?></span></div>
+						<p><a href="javascript:void(0);" title="<?php echo __("CLICK HERE"); ?>"><?php echo __("CLICK HERE"); ?></a></p>
 					</div>
 				</div>
 				<div class="col-sm-6">
 					<div class="header-content-inner">
-						<div class="heading heading3">Ready to Sign<span>the Social Contract</span></div>
-						<p><a href="<?php echo SITE_LINK."login"; ?>" title="click here">click here</a></p>
+						<div class="heading heading3"><?php echo __("Ready to Sign");?><span><?php echo __("The Social Contract"); ?></span></div>
+						<p><a href="<?php echo SITE_LINK."login"; ?>" title="<?php echo __("CLICK HERE"); ?>"><?php echo __("CLICK HERE"); ?></a></p>
 					</div>
 				</div>
 			</div>
+			<?php echo $this->Form->create("Page"); ?>
 			<div class="form-group">
-				<p>Chose your language</p>
-				<select class="selectpicker">
-					<option>English</option>
-					<option>Español</option>
-				</select>
+				<p><?php echo __("Choose your language");?></p>
+				<?php echo $this->Form->input("language",array("options"=>$languages,"class"=>"selectpicker","div"=>false,"label"=>false)); ?>
 			</div>
+			<?php echo $this->Form->end(); ?>
         </div>
     </section>
-	<footer>© 2017 World Citizen. All Rights Reserved.</footer>
+	<footer><?php echo __("© 2017 World Citizen. All Rights Reserved.");?></footer>
 
     
     
@@ -100,7 +99,11 @@
     $('.selectpicker').selectpicker();
 });
 	</script>
-
+<script>
+	$(document).ready( function(){
+			$("#PageLanguage").on("change",function() { $("#PageIndexForm").submit(); });
+	});
+</script>
 </body>
 
 </html>

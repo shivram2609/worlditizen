@@ -35,6 +35,7 @@ class AppController extends Controller {
 	public $components = array(
 	"Session",
 	"Flash",
+	"Cookie",
 	'Auth' => array(
 			'loginAction' => array(
 				'controller' => 'users',
@@ -58,15 +59,32 @@ class AppController extends Controller {
 	var $updatearr = array();
 	
 	function beforefilter() {
+		if ($this->Session->check('Config.language')) {
+            Configure::write('Config.language', $this->Session->read('Config.language'));
+        } else {
+			Configure::write('Config.language', 'en');
+		}
+		if ( $_SERVER['REMOTE_ADDR'] == '127.0.0.1' ) {
+			$link = "http://localhost".$this->base."/";
+			$defaultLink = "http://localhost".$this->base;
+		} else {
+			$link = "http://worldcitizen.zestminds.com/";
+			$defaultLink = "http://worldcitizen.zestminds.com";
+		}
 		if (!defined('SITE_LINK')) { 
-			define('SITE_LINK',"http://worldcitizen.zestminds.com/");
+			define('SITE_LINK',$link);
+			define('DEFAULT_LINK',$defaultLink);
 		}
 		$this->Auth->scope = array('User.is_active' =>1);
 		if ($this->params['prefix']) {
 			$this->layout = "admin";
 		} else {
+			$this->getPages();
 			$this->layout = "frontend";
 		}
+		
+		
+		
 	}
 	
 	public function getUserDetail() {
@@ -140,5 +158,24 @@ class AppController extends Controller {
 		}
 		
 		/* end of code to change status and delete by checking data from page */
+	}
+	
+	function getLanguages($languageId = NULL) {
+		//die("here");
+		$this->loadModel("Language");
+		$languages = $this->Language->find("list",array("conditions"=>array("is_active"=>1)));
+		$this->set(compact("languages"));
+		if ( !empty($languageId) ) {
+			$languages = $this->Language->find("first",array("conditions"=>array("is_active"=>1,"id"=>$languageId),"recursive"=>-1));
+			return $languages;
+		} 
+	}
+	
+	function getPages($languageId = 1) {
+		if ($this->Session->read("selectedLanguage.Language.id")) {
+			$languageId = $this->Session->read("selectedLanguage.Language.id");
+		}
+		$this->loadModel("CmsPages");
+		$this->set("staticPages",$this->CmsPages->find("all",array("conditions"=>array("language_id"=>$languageId,"is_active"=>1),"recursive"=>-1,"fields"=>array("seo_url","header"))));
 	}
 }

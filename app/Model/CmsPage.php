@@ -24,4 +24,45 @@ class CmsPage extends AppModel {
 			'order' => ''
 		)
 	);
+	public $validate = array (
+		"content" => array (
+			"notempty" => array (
+				"rule" => "notBlank",
+				"message" => "Please enter title."
+			)
+		),
+		"slug" => array (
+			"notempty" => array (
+				"rule" => "notBlank",
+				"message" => "Please enter content."
+			)
+		),
+		"seo_url" => array (
+			"notempty" => array (
+				"rule" => "notBlank",
+				"message" => "Please enter url."
+			)
+		),
+		"header" => array (
+			"notempty" => array (
+				"rule" => "notBlank",
+				"message" => "Please enter url."
+			)
+		),
+		"meta_title" => array (
+			"notempty" => array (
+				"rule" => "notBlank",
+				"message" => "Please enter meta title."
+			)
+		),
+		"meta_keyword" => array (
+			"notempty" => array (
+				"rule" => "notBlank",
+				"message" => "Please enter meta keyword."
+			)
+		),
+		
+	);
 }
+
+

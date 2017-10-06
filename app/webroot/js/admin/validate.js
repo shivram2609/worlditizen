@@ -82,7 +82,7 @@ $(document).ready(function() {
 		searchButton = $(this).attr('attr');		
 	});	
 	/* below code is to validate checkall functionality for every page on which we perform delete multiple or update multiple functionalioty*/
-	$("#CategoryAdminIndexForm,#LocationAdminIndexForm,#CuisineAdminIndexForm,#DishAdminIndexForm,#UserAdminIndexForm").submit(function(){  if(searchButton == ''){ return validatemultipleaction(); }else{ $(".chk").removeAttr("checked"); return true; } });
+	$("#CategoryAdminIndexForm,#LocationAdminIndexForm,#CuisineAdminIndexForm,#DishAdminIndexForm,#UserAdminIndexForm,#CmsPageAdminIndexForm,#LanguageAdminIndexForm,#BlogAdminIndexForm").submit(function(){  if(searchButton == ''){ return validatemultipleaction(); }else{ $(".chk").removeAttr("checked"); return true; } });
 	/* end here */
 	
     

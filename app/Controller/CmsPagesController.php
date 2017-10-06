@@ -111,9 +111,21 @@ class CmsPagesController extends AppController {
  *
  * @return void
  */
-	public function admin_index() {
+	public function admin_index($searchval = NULL) {
+		$this->bulkactions();
+		if ( !empty($searchval) ) {
+			$this->set("searchval",$searchval);
+			$this->conditions = array("CmsPage.slug like"=> "%".$searchval."%");
+		}
+		if ( $this->request->is("post") ) {
+			if ( !empty($this->data['CmsPage']['searchval']) ) {
+				$this->redirect(SITE_LINK."ad-cmspages/".$this->data['CmsPage']['searchval']);
+			} else {
+				$this->redirect(SITE_LINK."ad-cmspages/");
+			}
+		}
 		$this->CmsPage->recursive = 0;
-		$this->set('cmsPages', $this->Paginator->paginate());
+		$this->set('cmsPages', $this->Paginator->paginate($this->conditions));
 	}
 
 /**
@@ -188,7 +200,7 @@ class CmsPagesController extends AppController {
 		if (!$this->CmsPage->exists()) {
 			throw new NotFoundException(__('Invalid cms page'));
 		}
-		$this->request->allowMethod('post', 'delete');
+		//$this->request->allowMethod('post', 'delete');
 		if ($this->CmsPage->delete()) {
 			$this->Flash->success(__('The cms page has been deleted.'));
 		} else {

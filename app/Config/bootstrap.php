@@ -72,6 +72,7 @@ Cache::config('default', array('engine' => 'File'));
  *
  * Configure::write('I18n.preferApp', true);
  */
+ Configure::write('I18n.preferApp', true);
 
 /**
  * You can attach event listeners to the request lifecycle as Dispatcher Filter. By default CakePHP bundles two filters:
