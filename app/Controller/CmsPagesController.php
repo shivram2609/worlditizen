@@ -115,7 +115,7 @@ class CmsPagesController extends AppController {
 		$this->bulkactions();
 		if ( !empty($searchval) ) {
 			$this->set("searchval",$searchval);
-			$this->conditions = array("CmsPage.slug like"=> "%".$searchval."%");
+			$this->conditions = array("OR"=>array("CmsPage.slug like"=> "%".$searchval."%","Lower(Language.name) like"=> "%".strtolower($searchval)."%"));
 		}
 		if ( $this->request->is("post") ) {
 			if ( !empty($this->data['CmsPage']['searchval']) ) {

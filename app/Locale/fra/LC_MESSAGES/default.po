@@ -30,7 +30,7 @@ msgid "Blogs"
 msgstr "Blogs"
 
 
-msgid "ContacT Us"
+msgid "Contact Us"
 msgstr "Contactez nous"
 
 msgid "FAQ’s"
@@ -60,3 +60,12 @@ msgstr "Souviens-toi de moi"
 
 msgid "Forgot Password?"
 msgstr "Mot de passe oublié?"
+
+msgid "Home"
+msgstr "Accueil"
+
+msgid "Social Contract"
+msgstr "contrat social"
+
+msgid "The Social Contract"
+msgstr "Le contrat social"

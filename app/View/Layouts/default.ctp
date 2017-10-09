@@ -67,7 +67,7 @@
       <div class="modal-content">
         <div class="modal-body">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-heading">The World Citizen <span>Social Contract</spa></h4>
+          <h4 class="modal-heading"><?php echo __("The World Citizen");?> <span><?php echo __("Social Contract"); ?></span></h4>
           <p>I recognize humanity's birth right to live on this planet according to Natural Law and hereby SERVE NOTICE of my LAWFUL STATUS as a World Citizen.</p>
 			<p>By doing so, all such contracts injurious to my birth right are hereby DECLARED NULL AND VOID.</p>
 			<p>From this day forward I commit to the Golden Rule and AFFIRM MY OBLIGATIONS to honour The Golden Rule., in doing so I will;</p>

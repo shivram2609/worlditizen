@@ -27,11 +27,11 @@ msgid "Follow Us On:"
 msgstr "Follow Us On:"
 
 msgid "Blogs"
-msgstr "Blogs"
+msgstr "בלוגים"
 
 
-msgid "ContacT Us"
-msgstr "ContacT Us"
+msgid "Contact Us"
+msgstr "Contact Us"
 
 msgid "FAQ’s"
 msgstr "FAQ’s"

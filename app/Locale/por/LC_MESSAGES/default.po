@@ -30,8 +30,8 @@ msgid "Blogs"
 msgstr "Blogs"
 
 
-msgid "ContacT Us"
-msgstr "ContacT Us"
+msgid "Contact Us"
+msgstr "Contact Us"
 
 msgid "FAQ’s"
 msgstr "FAQ’s"

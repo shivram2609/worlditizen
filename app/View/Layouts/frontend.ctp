@@ -56,7 +56,7 @@
 						
 							
 						<li>
-							<a href="<?php echo DEFAULT_LINK; ?>" title="Home">Home</a>
+							<a href="<?php echo DEFAULT_LINK; ?>" title="<?php echo __('Home'); ?>"><?php echo __('Home'); ?></a>
 						</li>
 						<?php foreach($staticPages as $pageKey=>$pageVal) { //pr($pageVal); die; ?>
 						<li>
@@ -79,11 +79,9 @@
 							<a href="javascript:void(0);" title="<?php echo __("Blogs");?>"><?php echo __("Blogs");?></a>
 						</li>
 						<li>
-							<a href="javascript:void(0);" title="<?php echo __("ContacT Us");?>"><?php echo __("ContacT Us");?></a>
+							<a href="javascript:void(0);" title="<?php echo __("Contact Us");?>"><?php echo __("Contact Us");?></a>
 						</li>
-						<li>
-							<a href="javascript:void(0);" title="<?php echo __("FAQ’s");?>"><?php echo __("FAQ’s");?></a>
-						</li>
+						
 						
 					</ul>
 				</div>
@@ -94,15 +92,13 @@
     <?php echo $content_for_layout; ?>
 	<footer class="inner-footer">
 		<?php echo __("© 2017 World Citizen. All Rights Reserved.");?><br>
-		<a href="index.html" title="Home">Home</a> | 
-		<a href="javascript:void(0);" title="About">About</a> | 
-		<a href="javascript:void(0);" title="Ambassador">Ambassador</a> | 
-		<a href="javascript:void(0);" title="Declaration">Declaration</a> | 
-		<a href="javascript:void(0);" title="Milestones and Participation">Milestones and Participation</a> | 
-		<a href="javascript:void(0);" title="WC Stats">WC Stats</a> | 
-		<a href="javascript:void(0);" title="Blogs"><?php echo __("Blogs");?></a> | 
-		<a href="javascript:void(0);" title="ContacT Us"><?php echo __("ContacT Us");?></a> | 
-		<a href="javascript:void(0);" title="FAQ’s"><?php echo __("FAQ’s");?></a>
+		<a href="<?php echo DEFAULT_LINK; ?>" title="<?php echo __("Home"); ?>"><?php echo __("Home"); ?></a> | 
+		<?php foreach($staticPages as $pageKey=>$pageVal) { //pr($pageVal); die; ?>
+			<a href="<?php echo SITE_LINK."st/".$pageVal['CmsPages']['seo_url']; ?>" title="<?php echo $pageVal['CmsPages']['header']; ?>"><?php echo $pageVal['CmsPages']['header']; ?></a> | 
+		<?php } ?>
+		<a href="javascript:void(0);" title="<?php echo __("Blogs");?>"><?php echo __("Blogs");?></a> | 
+		<a href="javascript:void(0);" title="<?php echo __("Contact Us");?>"><?php echo __("Contact Us");?></a> | 
+		
 	</footer>
 
     
