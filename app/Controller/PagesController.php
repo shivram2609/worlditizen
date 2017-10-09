@@ -58,6 +58,16 @@ class PagesController extends AppController {
 		}
 		
 	}
+	
+	function staticpage($key = NULL) {
+		if ( $this->Session->read("selectedLanguage.Language.id") )	{
+			$langId = $this->Session->read("selectedLanguage.Language.id");
+		} else {
+			$langId = 1;
+		}
+		$this->loadModel("CmsPages");
+		$this->set("pageContent",$this->CmsPages->find("first",array("conditions"=>array("seo_url"=>$key,"language_id"=>$langId,"is_active"=>1))));
+	}
 
 /**
  * Displays a view

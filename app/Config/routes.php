@@ -26,6 +26,7 @@
  * to use (in this case, /app/View/Pages/home.ctp)...
  */
 	Router::connect('/', array('controller' => 'pages', 'action' => 'index'));
+	Router::connect('/st/*', array('controller' => 'pages', 'action' => 'staticpage'));
 /**
  * ...and connect the rest of 'Pages' controller's URLs.
  */

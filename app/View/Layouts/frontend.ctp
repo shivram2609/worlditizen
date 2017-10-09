@@ -8,7 +8,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>World Citizen</title>
+	<?php if (isset($pageContent['CmsPages'])) { ?>
+		<title>World Citizen : <?php echo $pageContent['CmsPages']["meta_title"]; ?></title>
+	<?php } else { ?>
+		<title>World Citizen</title>
+	<?php } ?>
     <!-- Bootstrap Core CSS -->
     <?php echo $this->Html->css(array("bootstrap.min","bootstrap-select.min","font-awesome.min","style")); ?>
     
@@ -30,7 +34,7 @@
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                     <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
                 </button>
-                <a class="navbar-brand page-scroll" href="<?php echo DEFAULT_LINK; ?>"><img src="img/inner-page-log.png" class="img-responsive" alt="World Citizen" width="244" height="53"></a>
+                <a class="navbar-brand page-scroll" href="<?php echo DEFAULT_LINK; ?>"><?php echo $this->Html->image("inner-page-log.png",array("class"=>"img-responsive","alt"=>"World Citizen","width"=>"244","height"=>"53")); ?></a>
 			</div>
 			<div class="social-icon">
 				<?php echo __("Follow Us On:");?><br>
@@ -51,13 +55,15 @@
 						<?php //print_r($staticPages); die; ?>
 						
 							
-						<li class="active">
+						<li>
 							<a href="<?php echo DEFAULT_LINK; ?>" title="Home">Home</a>
 						</li>
+						<?php foreach($staticPages as $pageKey=>$pageVal) { //pr($pageVal); die; ?>
 						<li>
-							<a href="about-us" title="About">About Us</a>
+							<a href="<?php echo SITE_LINK."st/".$pageVal['CmsPages']['seo_url']; ?>" title="<?php echo $pageVal['CmsPages']['header']; ?>"><?php echo $pageVal['CmsPages']['header']; ?></a>
 						</li>
-						<li>
+						<?php } ?>
+						<!--li>
 							<a href="ambassador" title="Ambassador">Ambassador</a>
 						</li>
 						<li>
@@ -68,7 +74,7 @@
 						</li>
 						<li>
 							<a href="javascript:void(0);" title="WC Stats">WC Stats</a>
-						</li>
+						</li-->
 						<li>
 							<a href="javascript:void(0);" title="<?php echo __("Blogs");?>"><?php echo __("Blogs");?></a>
 						</li>

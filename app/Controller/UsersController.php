@@ -43,7 +43,8 @@ class UsersController extends AppController {
 					$this->redirect("/dashboard");
 				}
 			} else {
-				die("error");
+				$this->Session->setFlash("Invalid login credentials");
+				$this->redirect("/login");
 			}
 		}
 	}

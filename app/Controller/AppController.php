@@ -64,7 +64,8 @@ class AppController extends Controller {
         } else {
 			Configure::write('Config.language', 'en');
 		}
-		if ( $_SERVER['REMOTE_ADDR'] == '127.0.0.1' ) {
+		//pr($_SERVER);
+		if ( $_SERVER['REMOTE_ADDR'] == '127.0.0.1' || $_SERVER['REMOTE_ADDR'] == 'localhost' || $_SERVER['REMOTE_ADDR'] == '::1' ) {
 			$link = "http://localhost".$this->base."/";
 			$defaultLink = "http://localhost".$this->base;
 		} else {
