@@ -31,4 +31,49 @@ class UserDetail extends AppModel {
 			'order' => ''
 		)
 	);
+	
+	
+	public $validate = array (
+		"name" => array (
+			"notempty" => array (
+				"rule" => "notBlank",
+				"message" => "Please enter Name."
+			)
+		),
+	     "phone" => array (
+			"notempty" => array (
+				"rule" => "notBlank",
+				"message" => "Please enter phone."
+			)
+		),
+		"address1" => array (
+			"notempty" => array (
+				"rule" => "notBlank",                                                  
+				"message" => "Please enter Address."
+			)
+		),
+		"state" => array (
+			"notempty" => array (
+				"rule" => "notBlank",
+				"message" => "Please Select State.",
+				"allowBlank" => false
+				
+			)
+		),
+		"city" => array (
+			"notempty" => array (
+				"rule" => "notBlank",
+				"message" => "Please Select city.",
+				"allowBlank" => false
+			)
+		),
+		"zip" => array (
+			"notempty" => array (
+				"rule" => "notBlank",
+				"message" => "Please Select zip code."
+			)
+		),
+	);
 }
+
+

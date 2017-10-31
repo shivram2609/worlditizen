@@ -1,63 +1,277 @@
 msgid "CLICK HERE"
-msgstr "CLICK HERE"
+msgstr "CLIQUE AQUI"
 
 msgid "Read"
-msgstr "Read"
+msgstr "Ler"
 
 msgid "Ready to Sign"
-msgstr "Ready to Sign"
+msgstr "Pronto para assinar"
 
 
 msgid "The Social Contract"
-msgstr "The Social Contract"
+msgstr "O Contrato Social"
 
 msgid "Learn More"
-msgstr "Learn More"
+msgstr "Saber mais"
 
 msgid "about Social Contract"
-msgstr "about Social Contract"
+msgstr "sobre contrato social"
 
 msgid "Choose your language"
-msgstr "Choose your language"
+msgstr "Escolha o seu idioma"
 
 msgid "© 2017 World Citizen. All Rights Reserved."
-msgstr "© 2017 World Citizen. All Rights Reserved."
+msgstr "© 2017 World Citizen. Todos os direitos reservados".
 
 msgid "Follow Us On:"
-msgstr "Follow Us On:"
+msgstr "Siga-nos no:"
 
 msgid "Blogs"
 msgstr "Blogs"
 
 
 msgid "Contact Us"
-msgstr "Contact Us"
+msgstr "Contate-Nos"
 
 msgid "FAQ’s"
 msgstr "FAQ’s"
 
 msgid "It takes less than a minute"
-msgstr "It takes less than a minute"
+msgstr "Demora menos de um minuto"
 
 
 msgid "Don’t have an account?"
-msgstr "Don’t have an account?"
+msgstr "Não tem uma conta?"
 
 
 msgid "Sign Up Now"
-msgstr "Sign Up Now"
+msgstr "Inscreva-se agora"
 
 msgid "Sign In"
-msgstr "Sign In"
+msgstr "Assinar em"
 
 msgid "Email"
-msgstr "Email"
+msgstr "O email"
 
 msgid "Password"
-msgstr "Password"
+msgstr "Senha"
 
 msgid "Remember Me"
-msgstr "Remember Me"
+msgstr "Lembre de mim"
 
 msgid "Forgot Password?"
-msgstr "Forgot Password?"
+msgstr "Esqueceu a senha?"
+
+msgid "Enter your email below to receive your password reset instructions"
+msgstr "Digite seu email abaixo para receber suas instruções de reinicialização de senha"
+
+
+msgid  "Send Password"
+msgstr "Enviar Senha"
+
+
+
+msgid "Home"
+msgstr "Casa"
+
+msgid "Social Contract"
+msgstr "Contrato social"
+
+msgid "The World Citizen"
+msgstr "O cidadão do mundo"
+
+
+msgid "I recognize humanity's birth right to live on this planet according to Natural Law and hereby SERVE NOTICE of my LAWFUL STATUS as a World Citizen."
+msgstr "Eu reconheço o direito de nascimento da humanidade de viver neste planeta de acordo com a Lei Natural e por isso SERVIR AVISO do MEU ESTADO LEGAL como um cidadão mundial."
+
+msgid "By doing so, all such contracts injurious to my birth right are hereby DECLARED NULL AND VOID."
+msgstr "Ao fazê-lo, todos esses contratos prejudiciais ao meu direito de nascimento são DECLARADOS NULL E ANULADOS."
+
+msgid "From this day forward I commit to the Golden Rule and AFFIRM MY OBLIGATIONS to honour The Golden Rule., in doing so I will;"
+msgstr "Desde este dia, comprometo-me com a Regra de Ouro e AFIRMAM MINHAS OBRIGAÇÕES para honrar a Regra de Ouro. Ao fazê-lo, eu;"
+
+
+msgid "Respect and protect my own Natural Rights without exception."
+msgstr "Respeite e proteja meus próprios direitos naturais sem exceção."
+
+
+msgid "Respect and protect the Natural Rights of every other human being"
+msgstr "Respeite e proteja os direitos naturais de todos os outros seres humanos"
+
+msgid "Respect and protect planet Earth for future generations."
+msgstr "Respeite e proteja o planeta Terra para futuras gerações."
+
+msgid "Sign Up"
+msgstr "Inscrever-se"
+
+msgid "Personal Information"
+msgstr "Informação pessoal"
+
+msgid "Name"
+msgstr "Nome"
+
+msgid "Phone"
+msgstr "Telefone"
+
+msgid "Confirm Password"
+msgstr "Confirme a Senha"
+
+msgid "Address"
+msgstr "Endereço"
+
+msgid "City"
+msgstr "Cidade"
+
+msgid "State"
+msgstr "Estado"
+
+msgid "Zip"
+msgstr "Fecho eclair"
+
+msgid "I agree to"
+msgstr "Eu concordo"
+
+msgid "Terms of Services"
+msgstr "Termos de serviços"
+
+msgid "Already have an account?"
+msgstr "Já tem uma conta?"
+
+msgid "Sign In Now"
+msgstr "Faça seu login agora mesmo"
+
+msgid "READY TO SIGN IN"
+msgstr "LISTO PARA ASSINAR"
+
+msgid "DONATE"
+msgstr "DOAR"
+
+msgid "AS YOUR WISH"
+msgstr "COMO SEU DESEJO"
+
+msgid "DONATE FUNDS"
+msgstr "DONAR FUNDOS"
+
+msgid "OF ANY AMOUNT"
+msgstr "DE QUALQUER MONTANTE"
+
+msgid "Simple Payment Option"
+msgstr "Opção de pagamento simples"
+
+
+msgid "No Personal Info Required except email"
+msgstr "Nenhuma informação pessoal necessária, exceto o email"
+
+
+
+msgid "Check Box Option for Email Opt Out"
+msgstr "Check Box Option for Email Opt Out"
+
+
+msgid "BECOME"
+msgstr "TORNAR-SE"
+
+msgid "A WORLD CITIZEN"
+msgstr "UM CIDADÃO MUNDIAL"
+
+
+msgid "PAY ONE TIME FEE (OR WAIVED)"
+msgstr "PAGUE UMA TAXA DE TEMPO (OU PEDIDO)"
+
+
+
+msgid "Agrees and Digitally Signs Social Contract"
+msgstr "Concorda e assina digitalmente contrato social"
+
+
+msgid "Completes Data form / Upload Picture"
+msgstr "Completa Formulário de Dados / Carregar Imagem"
+
+
+msgid "Add a WC mailing list"
+msgstr "Adicionar uma lista de endereços WC"
+
+
+msgid "Gains entry to WC social media forum"
+msgstr "Ganha entrada no WC social media forum"
+
+
+msgid "Generate a ‘x-number’ person affiliate link"
+msgstr "Gerar um link de afiliado de pessoa número x "
+
+
+msgid "Your request to reset password is submitted, please check your email."
+msgstr "Seu pedido de redefinição da senha é enviado, verifique seu e-mail."
+
+msgid "Your request could not be processed, please try again."
+msgstr "Seu pedido não pôde ser processado, tente novamente."
+
+msgid "Invalid email for forgot password request."
+msgstr "E-mail inválido para pedido de senha esquecida."
+
+msgid "Invalid login credentials"
+msgstr "Credenciais de login inválidas"
+
+
+msgid "Donate Now"
+msgstr "DOE agora"
+
+msgid "continue"
+msgstr "continuar"
+
+msgid "Please enter email."
+msgstr "Digite e-mail."
+
+msgid "Please enter valid email."
+msgstr "Por favor introduza um email válido."
+
+
+msgid "email is already in use."
+msgstr "o e-mail já está sendo usado."
+
+msgid "Please enter Password."
+msgstr "Digite senha."
+
+msgid "Your password must be between 6 and 20 characters."
+msgstr "Sua senha deve ter entre 6 e 20 caracteres."
+
+msgid "Please enter confirm Password."
+msgstr "Por favor, digite confirmar a senha."
+
+msgid "Passwords do not match"
+msgstr "Senhas não correspondem"
+
+msgid "Please enter client name."
+msgstr "Digite o nome do cliente."
+
+msgid "Please select signature."
+msgstr "Selecione a assinatura."
+
+msgid "Back"
+msgstr "Costas"
+
+msgid "Please enter Name."
+msgstr "Digite Nome."
+
+
+msgid "Please enter phone."
+msgstr "Entre no telefone."
+
+
+msgid "Please enter Address."
+msgstr "Digite o endereço."
+
+
+msgid "Please Select State."
+msgstr "Selecione Estado."
+
+
+msgid "Please Select city."
+msgstr "Selecione a cidade."
+
+
+msgid "Please Select zip code."
+msgstr "Selecione o CEP."
+
+
+

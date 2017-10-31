@@ -7,6 +7,8 @@
 		echo $this->Form->input('name');
 		echo $this->Form->input('short_code');
 		echo $this->Form->input('is_active');
+		echo $this->Form->input('currency');
+		echo $this->Form->input('amount');
 	?>
 	</fieldset>
 <?php echo $this->Form->end(__('Submit')); ?>

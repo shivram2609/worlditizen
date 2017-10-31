@@ -44,6 +44,16 @@
 	Router::connect('/ad-blogs/*', array('controller' => 'blogs', 'action' => 'index',"admin"=>"true"));
 	Router::connect('/ad-new-blog', array('controller' => 'blogs', 'action' => 'add',"admin"=>"true"));
 	Router::connect('/ad-users/*', array('controller' => 'users', 'action' => 'index',"admin"=>"true"));
+	Router::connect('/ad-emailtemplates/*', array('controller' => 'emailTemplates', 'action' => 'index',"admin"=>"true"));
+	Router::connect('/ready_to_signin', array('controller' => 'users', 'action' => 'ready_to_signin'));
+	Router::connect('/signup/*', array('controller' => 'users', 'action' => 'signup'));
+	Router::connect('/forgot_password', array('controller' => 'users', 'action' => 'forgot_password'));
+	Router::connect('/reset_password/*', array('controller' => 'users', 'action' => 'reset_password'));
+	Router::connect('/confirmlink/*', array('controller' => 'users', 'action' => 'confirmlink'));
+	Router::connect('/ad-digitalsignatures/*', array('controller' => 'digitalSignatures', 'action' => 'index',"admin"=>"true"));
+	Router::connect('/ad-new-digitalsignature', array('controller' => 'digitalSignatures', 'action' => 'add',"admin"=>"true"));
+	
+	Router::connect('/dashboard', array('controller' => 'users', 'action' => 'dashboard'));
 	
 	
 

@@ -26,6 +26,18 @@ class Location extends AppModel {
 				"message" => "Please enter short code."
 			)
 		),
+		"currency" => array (
+			"notempty" => array (
+				"rule" => "notBlank",
+				"message" => "Please enter currency."
+			)
+		),
+		"amount" => array (
+			"notempty" => array (
+				"rule" => "notBlank",
+				"message" => "Please enter amount."
+			)
+		),
 	);
 		
 

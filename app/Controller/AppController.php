@@ -57,8 +57,12 @@ class AppController extends Controller {
 	var $conditions = array();
 	var $delarr = array();
 	var $updatearr = array();
+	public $mailBody = 'WorlCitizen';
+    public $from = 'support@worldcitizen.com';
+    public $subject = 'WorldCitizen';
 	
 	function beforefilter() {
+		
 		if ($this->Session->check('Config.language')) {
             Configure::write('Config.language', $this->Session->read('Config.language'));
         } else {
@@ -76,6 +80,7 @@ class AppController extends Controller {
 			define('SITE_LINK',$link);
 			define('DEFAULT_LINK',$defaultLink);
 		}
+		
 		$this->Auth->scope = array('User.is_active' =>1);
 		if ($this->params['prefix']) {
 			$this->layout = "admin";
@@ -96,9 +101,6 @@ class AppController extends Controller {
 	}
 	
 	function bulkactions($flag = false) {
-		//pr($this->data);
-		//die;
-		/* code to change status and delete by checking data from page */
 		$controller = is_array($this->data)?array_keys($this->data):'';
 		$statuskey  = '';
 		$controller = isset($controller[0])?$controller[0]:'';
@@ -179,4 +181,142 @@ class AppController extends Controller {
 		$this->loadModel("CmsPages");
 		$this->set("staticPages",$this->CmsPages->find("all",array("conditions"=>array("language_id"=>$languageId,"is_active"=>1),"recursive"=>-1,"fields"=>array("seo_url","header"))));
 	}
+	
+	function checkLogin() {
+		if ( $this->Session->read("Auth.User.id") ) {
+			$this->redirect("/");
+		}
+	}
+	
+	/*
+     * @function name	: getmaildata
+     * @purpose			: getting email data for various purposes
+     * @arguments		: Following are the arguments to be passed:
+     * id				: id of email templates from cmsemail table
+     * @return			: NONE
+     * @created on		: 
+     * @description		: function will assign value to global variables like mailbody,from, subject which will be used while sending email
+     */
+
+    function getMailData($mail_slug = null, $to = null) {
+        $this->loadModel('EmailTemplate');
+        $languageId = ($this->Session->read("selectedLanguage.Language.id"))?$this->Session->read("selectedLanguage.Language.id"):1;
+        $cmsemail = $this->EmailTemplate->find('first', array('conditions' => array('EmailTemplate.slug' => $mail_slug,"EmailTemplate.language_id"=>$languageId)));
+        if (!empty($cmsemail)) {
+            $this->mailBody = $cmsemail['EmailTemplate']['content'];
+            $this->from = $cmsemail['EmailTemplate']['email_from'];
+            $this->subject = str_replace("{TO}", $to, $cmsemail['EmailTemplate']['subject']);
+        }
+    }
+    
+    
+    /* end of function */
+    /*
+     * @function name	: sendmail
+     * @purpose			: sending email for various actions
+     * @arguments		: Following are the arguments to be passed:
+     * from		: contain email address from which email is sending
+     * Subject	: Subject of Email
+     * to		: Email address to whom the email is sending
+     * body		: content of email
+     * template : if defining a html template for sending email else false.
+     * values	: to be given in email template like username etc.
+     * @return			: true if email sending successfull else return false.
+     * @created on		: 11th March 2014
+     * @description		: NA
+     */
+
+    function sendMail($to, $template = 'email', $fromname = 'WorldCitizen') {
+        App::uses('CakeEmail', 'Network/Email');
+       // if (isset($this->params->base) && !empty($this->params->base)) {
+            //$email = new CakeEmail("gmail");
+        //} else {
+           $email = new CakeEmail("zestminds");
+        //}
+        //Use filter_var_array for multiple emails
+        $this->from = "somdatta@zestminds.com";
+        $is_valid = is_array($to) ? filter_var_array($to, FILTER_VALIDATE_EMAIL) : filter_var($to, FILTER_VALIDATE_EMAIL);
+        if ($is_valid) {
+            $email->from(array($this->from => $fromname));
+            $email->to($to);
+            $email->subject($this->subject);
+            $headers[] = 'MIME-Version: 1.0';
+            $headers[] = 'Content-type: text/html; charset=iso-8859-1';
+            $email->addHeaders($headers);
+            $email->emailFormat('both');
+            if (empty($template)) {
+				try {
+					if ( !$email->send($this->mailBody)) {
+						throw new Exception;
+                    } else {
+						return true;
+                    }
+                } catch (Exception $e) {
+                    return false;
+                }
+            } else {
+                if (!empty($this->mailBody)) {
+                    $email->viewVars(array("mail" => $this->mailBody));
+                }
+                $email->template($template, 'default');
+                try {
+                    if (!$email->send()) {
+						throw new Exception;
+                    } else {
+						return true;
+                    }
+                    
+                } catch (Exception $e) {
+					echo $e->getMessage();
+					die;
+                    return false;
+                } 
+            }
+        } else {
+            return false;
+        }
+    }
+
+    /* end of function */
+    
+    function encryptpass($password, $salt = '', $method = 'md5', $crop = true, $start = 4, $end = 10) {
+		$salt = strtotime(date("Y-m-d h:i:s"));
+		if ($crop) {
+			$password = $method(substr($method($password.$salt), $start, $end));
+		} else {
+			$password = $method($password.$salt);
+		}
+		return $password;
+    }
+    
 }
+function uploadImage($file , $destination = NULL, $old_img = false,$first = NULL,$second=NULL, $filetypes = array('jpg', 'jpeg', 'png')) {
+		$flag = false;
+		$file_ext = explode(".",$file['name']);
+		$file_ext = strtolower(end($file_ext));
+		$this->imagename = $this->uploaddir =  '';
+		if ( in_array($file_ext,$filetypes) ) {
+			
+			$this->uploaddir = WWW_ROOT."/img/".$destination."/";
+			
+			if ( !empty($destination) && !is_dir($this->uploaddir) ) {
+				mkdir($this->uploaddir,0777,true);
+			}
+			$this->imagename = mt_rand().strtotime(date("y-m-d h:i:s")).".".$file_ext;
+			if ( move_uploaded_file($file['tmp_name'],$this->uploaddir.$this->imagename) ) {
+				 if($old_img) {
+					if ( !empty($first) && file_exists($this->uploaddir.$first) ) {					
+						@unlink($this->uploaddir.$first);
+					}
+					if ( !empty($second) && file_exists($this->uploaddir.$second) ) {				
+						@unlink($this->uploaddir.$second);					
+					}
+				}
+				$flag = true;
+			} 
+		} else {			
+			$flag = false;
+		}
+		return $flag; 
+	}
+	

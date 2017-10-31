@@ -18,6 +18,8 @@
 			<th><?php echo $this->Paginator->sort('name'); ?></th>
 			<th><?php echo $this->Paginator->sort('short_code'); ?></th>
 			<th><?php echo $this->Paginator->sort('is_active'); ?></th>
+			<th><?php echo $this->Paginator->sort('currency');?></th>
+		    <th><?php echo $this->Paginator->sort('amount');?></th>
 			<th><?php echo $this->Paginator->sort('created'); ?></th>
 			<th><?php echo $this->Paginator->sort('modified'); ?></th>
 			<th class="actions"><?php echo __('Actions'); ?></th>
@@ -30,6 +32,8 @@
 		<td><?php echo h($location['Location']['name']); ?>&nbsp;</td>
 		<td><?php echo h($location['Location']['short_code']); ?>&nbsp;</td>
 		<td><?php echo h(($location['Location']['is_active'])?'Active':'Inactive'); ?>&nbsp;</td>
+		<td><?php echo h($location['Location']['currency']); ?>&nbsp;</td>
+		<td><?php echo h($location['Location']['amount']); ?>&nbsp;</td>
 		<td><?php echo h($location['Location']['created']); ?>&nbsp;</td>
 		<td><?php echo h($location['Location']['modified']); ?>&nbsp;</td>
 		<td class="actions">

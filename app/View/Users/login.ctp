@@ -4,7 +4,7 @@
 			<?php echo $this->Form->create("User", array("novalidate"=>true)); ?>
 				<div class="form-section">
 					<h1 class="heading"><?php echo __("Sign In");?></h1>					
-					<p class="top-txt"><?php echo __("Don’t have an account?");?> <a href="#" title="<?php echo __("Sign Up Now");?>"><?php echo __("Sign Up Now");?></a>,<?php echo __("It takes less than a minute");?> </p>
+					<p class="top-txt"><?php echo __("Don’t have an account?");?> <a href="<?php echo SITE_LINK."ready_to_signin"; ?>" title="<?php echo __("Sign Up Now");?>"><?php echo __("Sign Up Now");?></a>,<?php echo __("It takes less than a minute");?> </p>
 					<div class="form-group">
 						<label><?php echo __("Email");?></label>
 						<?php echo $this->Form->input("username",array("type"=>"text","maxlength"=>100,"class"=>"form-control","div"=>false,"label"=>false)); ?>
@@ -20,7 +20,7 @@
 							<label for="remember"><?php echo __("Remember Me");?> </label>				
 						</div>
 						<div class="col-sm-6 text-right">
-							<a href="#" title="<?php echo __("Forgot Password?");?>"><?php echo __("Forgot Password?");?></a>				
+							<a href="forgot_password" title="<?php echo __("Forgot Password?");?>"><?php echo __("Forgot Password?");?></a>				
 						</div>
 					</div>
 				</div>

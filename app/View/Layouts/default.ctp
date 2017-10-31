@@ -10,11 +10,7 @@
     <meta name="author" content="">
     <title>World Citizen</title>
     <!-- Bootstrap Core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/bootstrap-select.min.css" rel="stylesheet">
-    <!-- Custom Fonts -->
-    <link href="css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link href="css/style.css" rel="stylesheet">
+   <?php echo $this->Html->css(array("bootstrap.min","bootstrap-select.min","font-awesome.min","style","jquery-ui.min")); ?>
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -27,6 +23,7 @@
 
 <body>
     <section class="main-page">
+		<div class="user-section"><a href="login/" title="Login">Login <img src="img/user-icon.png" alt="login" width="31" height="31"></a></div>
 		<div class="text-center"><img src="img/home-logo.png" alt="World Citizen" width="504" height="367" class="img-responsive"></div>
         <div class="header-content">
             <div class="header-content-inner">
@@ -43,7 +40,7 @@
 				<div class="col-sm-6">
 					<div class="header-content-inner">
 						<div class="heading heading3"><?php echo __("Ready to Sign");?><span><?php echo __("The Social Contract"); ?></span></div>
-						<p><a href="<?php echo SITE_LINK."login"; ?>" title="<?php echo __("CLICK HERE"); ?>"><?php echo __("CLICK HERE"); ?></a></p>
+						<p><a href="<?php echo SITE_LINK."ready_to_signin"; ?>" title="<?php echo __("CLICK HERE"); ?>"><?php echo __("CLICK HERE"); ?></a></p>
 					</div>
 				</div>
 			</div>
@@ -68,14 +65,14 @@
         <div class="modal-body">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
           <h4 class="modal-heading"><?php echo __("The World Citizen");?> <span><?php echo __("Social Contract"); ?></span></h4>
-          <p>I recognize humanity's birth right to live on this planet according to Natural Law and hereby SERVE NOTICE of my LAWFUL STATUS as a World Citizen.</p>
-			<p>By doing so, all such contracts injurious to my birth right are hereby DECLARED NULL AND VOID.</p>
-			<p>From this day forward I commit to the Golden Rule and AFFIRM MY OBLIGATIONS to honour The Golden Rule., in doing so I will;</p>
+          <p><?php echo __("I recognize humanity's birth right to live on this planet according to Natural Law and hereby SERVE NOTICE of my LAWFUL STATUS as a World Citizen.");?></p>
+			<p><?php echo __("By doing so, all such contracts injurious to my birth right are hereby DECLARED NULL AND VOID.");?></p>
+			<p><?php echo __("From this day forward I commit to the Golden Rule and AFFIRM MY OBLIGATIONS to honour The Golden Rule., in doing so I will;");?></p>
         </div>
         <ul class="modal-list">
-          <li>Respect and protect my own Natural Rights without exception.</li>
-		  <li>Respect and protect the Natural Rights of every other human being</li>
-		  <li>Respect and protect planet Earth for future generations.</li>
+          <li><?php echo __("Respect and protect my own Natural Rights without exception.");?></li>
+		  <li><?php echo __("Respect and protect the Natural Rights of every other human being");?></li>
+		  <li><?php echo __("Respect and protect planet Earth for future generations.");?></li>
         </ul>
       </div>
       

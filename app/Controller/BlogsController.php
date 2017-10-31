@@ -115,12 +115,19 @@ class BlogsController extends AppController {
 		$this->bulkactions();
 		if ( !empty($searchval) ) {
 			$this->set("searchval",$searchval);
+			
 			$this->conditions = array("Blog.title like"=> "%".$searchval."%");
+			
 		}
 		if ( $this->request->is("post") ) {
+			
 			if ( !empty($this->data['Blog']['searchval']) ) {
+			
 				$this->redirect(SITE_LINK."ad-blogs/".$this->data['Blog']['searchval']);
-			} else {
+					pr($this->data);
+			die;
+			} else { 
+				
 				$this->redirect(SITE_LINK."ad-blogs/");
 			}
 		}

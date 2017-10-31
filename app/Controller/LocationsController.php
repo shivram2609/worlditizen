@@ -14,6 +14,11 @@ class LocationsController extends AppController {
  * @var array
  */
 	public $components = array('Paginator');
+	
+	function beforeFilter() {
+		parent::beforeFilter();
+		//$currencyArray = array("USD"=>"USD","AUD"=>"AUD");
+	}
 
 /**
  * index method

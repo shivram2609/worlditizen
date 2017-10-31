@@ -7,7 +7,6 @@ msgstr "Lis"
 msgid "Ready to Sign"
 msgstr "Prêt à signer"
 
-
 msgid "The Social Contract"
 msgstr "Le contrat social"
 
@@ -29,7 +28,6 @@ msgstr "Suivez-nous sur:"
 msgid "Blogs"
 msgstr "Blogs"
 
-
 msgid "Contact Us"
 msgstr "Contactez nous"
 
@@ -38,7 +36,6 @@ msgstr "FAQ"
 
 msgid "It takes less than a minute"
 msgstr "Il faut moins d'une minute"
-
 
 msgid "Don’t have an account?"
 msgstr "Vous n'avez pas de compte?"
@@ -61,11 +58,192 @@ msgstr "Souviens-toi de moi"
 msgid "Forgot Password?"
 msgstr "Mot de passe oublié?"
 
+msgid "Enter your email below to receive your password reset instructions"
+msgstr "Entrez votre courriel ci-dessous pour recevoir vos instructions de réinitialisation du mot de passe"
+
+msgid  "Send Password"
+msgstr "Envoyer un mot de passe"
+
 msgid "Home"
 msgstr "Accueil"
 
 msgid "Social Contract"
 msgstr "contrat social"
 
-msgid "The Social Contract"
-msgstr "Le contrat social"
+msgid "I recognize humanity's birth right to live on this planet according to Natural Law and hereby SERVE NOTICE of my LAWFUL STATUS as a World Citizen."
+msgstr "Je reconnais le droit de naissance de l'humanité de vivre sur cette planète selon le droit naturel et, par la présente, AVIS DE VOTRE STATUT LÉGAL en tant que citoyen du monde."
+
+msgid "By doing so, all such contracts injurious to my birth right are hereby DECLARED NULL AND VOID."
+msgstr "Ce faisant, tous ces contrats nuisibles à mon droit de naissance sont par la présente DÉCLARÉS NUL ET ANNULÉS."
+
+msgid "From this day forward I commit to the Golden Rule and AFFIRM MY OBLIGATIONS to honour The Golden Rule., in doing so I will;"
+msgstr "À partir de ce jour, je m'engage dans la Règle d'Or et AFFIRME MA OBLIGATIONS à honorer la Règle d'Or., Ce faisant, je le ferai;"
+
+msgid "Respect and protect my own Natural Rights without exception."
+msgstr "Respectez et protégez mes propres droits naturels sans exception."
+
+msgid "Respect and protect the Natural Rights of every other human being"
+msgstr "Respectez et protégez les droits naturels de tous les autres êtres humains "
+
+msgid "Respect and protect planet Earth for future generations."
+msgstr "Respectez et protégez la planète Terre pour les générations futures."
+
+msgid "Sign Up"
+msgstr "S'inscrire"
+
+msgid "Personal Information"
+msgstr "Informations personnelles"
+
+msgid "Name"
+msgstr "prénom"
+
+msgid "Phone"
+msgstr "Téléphone"
+
+msgid "Confirm Password"
+msgstr "Confirmez le mot de passe"
+
+msgid "Address"
+msgstr "Adresse"
+
+msgid "city"
+msgstr "Ville"
+
+msgid "state"
+msgstr "Etat"
+
+msgid "Zip"
+msgstr "Zip *: français"
+
+msgid "I agree to"
+msgstr "Je suis d'accord pour"
+
+msgid "Terms of Services"
+msgstr "Conditions de services"
+
+msgid "Already have an account?"
+msgstr "Vous avez déjà un compte?"
+
+
+msgid "Sign In Now"
+msgstr "Connectez vous maintenant"
+
+msgid "READY TO SIGN IN"
+msgstr "PRÊT À SE CONNECTER"
+
+msgid "DONATE"
+msgstr "FAIRE UN DON"
+
+msgid "AS YOUR WISH"
+msgstr "COMME TU VEUX"
+
+msgid "DONATE FUNDS"
+msgstr "FAITES UN DON"
+
+msgid "OF ANY AMOUNT"
+msgstr "DE TOUT MONTANT "
+
+msgid "Simple Payment Option"
+msgstr "Option de paiement simple"
+
+msgid "No Personal Info Required except email"
+msgstr "Aucune information personnelle requise sauf email"
+
+msgid "Check Box Option for Email Opt Out"
+msgstr "Option de case à cocher pour l'option d'exclusion de courrier électronique "
+
+msgid "BECOME"
+msgstr "DEVENIR"
+
+msgid "A WORLD CITIZEN"
+msgstr "UN CITOYEN MONDIAL"
+
+msgid "PAY ONE TIME FEE (OR WAIVED)"
+msgstr "PAYER UN FRAIS DE TEMPS (OU RENONCIÉ)"
+
+msgid "Agrees and Digitally Signs Social Contract"
+msgstr "Accepte et signe numériquement un contrat social"
+
+msgid "Completes Data form / Upload Picture"
+msgstr "Remplit le formulaire de données / Télécharger l'image"
+
+msgid "Add a WC mailing list"
+msgstr "Ajouter une liste de diffusion WC"
+
+msgid "Gains entry to WC social media forum"
+msgstr "Gagne l'accès au forum des médias sociaux WC"
+
+msgid "Generate a ‘x-number’ person affiliate link"
+msgstr "Générer un lien d'affilié x-number"
+
+msgid "Your request to reset password is submitted, please check your email."
+msgstr "Votre demande de réinitialisation du mot de passe est soumise, veuillez vérifier votre adresse e-mail."
+
+msgid "Your request could not be processed, please try again."
+msgstr "Votre demande n'a pas pu être traitée, veuillez réessayer."
+
+msgid "Invalid email for forgot password request."
+msgstr "Votre demande n'a pas pu être traitée, veuillez réessayer."
+
+msgid "Invalid login credentials"
+msgstr "Authentification invalide"
+
+msgid "Donate Now"
+msgstr "Faire un don maintenant"
+
+msgid "continue"
+msgstr "continuer"
+
+msgid "Please enter email."
+msgstr "S'il vous plaît entrer email."
+
+msgid "Please enter valid email."
+msgstr "Veuillez entrer un email valide."
+
+
+msgid "email is already in use."
+msgstr "cet email est déjà utilisé."
+
+msgid "Please enter Password."
+msgstr "Veuillez entrer le mot de passe."
+
+msgid "Your password must be between 6 and 20 characters."
+msgstr "Votre mot de passe doit comporter entre 6 et 20 caractères."
+
+msgid "Please enter confirm Password."
+msgstr "S'il vous plaît entrez confirmer le mot de passe."
+
+msgid "Passwords do not match"
+msgstr "Les mots de passe ne correspondent pas"
+
+msgid "Please enter  client name."
+msgstr "Veuillez entrer le nom du client."
+
+msgid "Please select signature."
+msgstr "Veuillez sélectionner la signature."
+
+msgid "Back"
+msgstr "Arrière"
+
+msgid "Please enter Name."
+msgstr "S'il vous plaît entrer le nom."
+
+
+msgid "Please enter phone."
+msgstr "S'il vous plaît entrer le téléphone."
+
+
+msgid "Please enter Address."
+msgstr "S'il vous plaît entrer Adresse."
+
+
+msgid "Please Select State."
+msgstr "Veuillez choisir l'état."
+
+
+msgid "Please Select city."
+msgstr "S'il vous plaît Sélectionnez une ville."
+
+
+msgid "Please Select zip code."
+msgstr "Veuillez sélectionner un code postal."

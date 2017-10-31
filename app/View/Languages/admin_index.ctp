@@ -23,7 +23,7 @@
 	<tbody>
 	<?php foreach ($languages as $language): ?>
 	<tr>
-		<td><?php echo $this->Form->input("id.".$language['Language']['id'],array("class"=>'chk',"value"=>$language['Language']['id'],"type"=>'checkbox',"div"=>false,"label"=>false)); ?><?php echo $this->Form->input("status.".$language['Language']['id'],array("type"=>'hidden',"value"=>($language['Language']['is_active'] == 1?0:1))); ?></td>
+		<td><?php if ($language['Language']['id'] > 1) {  echo $this->Form->input("id.".$language['Language']['id'],array("class"=>'chk',"value"=>$language['Language']['id'],"type"=>'checkbox',"div"=>false,"label"=>false)); ?><?php echo $this->Form->input("status.".$language['Language']['id'],array("type"=>'hidden',"value"=>($language['Language']['is_active'] == 1?0:1))); } ?></td>
 		<td><?php echo h($language['Language']['name']); ?>&nbsp;</td>
 		<td><?php echo h($language['Language']['short_code']); ?>&nbsp;</td>
 		<td><?php echo h(($language['Language']['is_active'])?'Active':'Inactive'); ?>&nbsp;</td>
@@ -31,8 +31,8 @@
 		<td><?php echo h($language['Language']['modified']); ?>&nbsp;</td>
 		<td class="actions">
 			<?php // echo $this->Html->link(__('View'), array('action' => 'view', $language['Language']['id'])); ?>
-			<?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $language['Language']['id'])); ?>
-			<?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $language['Language']['id']), array('confirm' => __('Are you sure you want to delete # %s?', $language['Language']['id']))); ?>
+			<?php if ($language['Language']['id'] > 1) { echo $this->Html->link(__('Edit'), array('action' => 'edit', $language['Language']['id'])); ?>
+			<?php  echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $language['Language']['id']), array('confirm' => __('Are you sure you want to delete # %s?', $language['Language']['id']))); } ?>
 		</td>
 	</tr>
 <?php endforeach; ?>

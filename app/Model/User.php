@@ -49,36 +49,73 @@ class User extends AppModel {
 				"message" => "Please enter User Type."
 			)
 		),
-		"name" => array (
-			"notempty" => array (
-				"rule" => "notBlank",
-				"message" => "Please enter Name."
-			)
-		),
+		
 		"username" => array (
 			"notempty" => array (
 				"rule" => "notBlank",
-				"message" => "Please enter User Name."
-			)
+				"message" => "Please enter email."
+			),
+			
+			"email" => array (
+				"rule" => "email",
+				"message" => "Please enter valid email."
+			),
+			
+			"isunique" => array (
+				"rule" => "isunique",
+				"message" => "email is already in use."
+			),
+			
 		),
 		"password" => array (
-			"notempty" => array (
+		    "notempty" => array (
 				"rule" => "notBlank",
-				"message" => "Please enter password."
+				"message" => "Please enter Password."
+				
+			),
+				
+			"length" => array (
+				"rule" => array ('between', 6, 20),
+				"message" => "Your password must be between 6 and 20 characters."
 			)
 		),
+		"confirm_password" => array(
+            "notempty" => array (
+				"rule" => "notBlank",
+				"message" => "Please enter confirm Password."
+				
+			),
+              "match"=>array(
+              "rule" => "validate_password",
+              "message" => "Passwords do not match"
+      )
+    ),
+		
+		
 		"registration_type" => array (
 			"notempty" => array (
 				"rule" => "notBlank",
 				"message" => "Please enter Registration Type."
 			)
 		),
-		"password_token" => array (
+		"clientname" => array (
 			"notempty" => array (
 				"rule" => "notBlank",
-				"message" => "Please enter Password Token."
+				"message" => "Please enter  client name."
 			)
 		),
+		"clientsignature" => array (
+			"notempty" => array (
+				"rule" => "notBlank",
+				"filetype" => "jpg","png",
+				"message" => "Please select signature."
+			)
+		)
+		
 	);
+	
+	function validate_password() {
+		return (isset($this->data['User']['confirm_password']) && ($this->data['User']['password'] == $this->data['User']['confirm_password']))?true:false;
+	}
 
 }

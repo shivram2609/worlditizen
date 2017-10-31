@@ -11,7 +11,7 @@
 	<?php if (isset($pageContent['CmsPages'])) { ?>
 		<title>World Citizen : <?php echo $pageContent['CmsPages']["meta_title"]; ?></title>
 	<?php } else { ?>
-		<title>World Citizen</title>
+		<title><?php echo __("World Citizen");?></title>
 	<?php } ?>
     <!-- Bootstrap Core CSS -->
     <?php echo $this->Html->css(array("bootstrap.min","bootstrap-select.min","font-awesome.min","style")); ?>
@@ -27,6 +27,7 @@
 </head>
 
 <body>
+	<?php echo $this->Session->flash(); ?>
 	<nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
         <div class="container">
             <!-- Brand and toggle get grouped for better mobile display -->
@@ -63,18 +64,7 @@
 							<a href="<?php echo SITE_LINK."st/".$pageVal['CmsPages']['seo_url']; ?>" title="<?php echo $pageVal['CmsPages']['header']; ?>"><?php echo $pageVal['CmsPages']['header']; ?></a>
 						</li>
 						<?php } ?>
-						<!--li>
-							<a href="ambassador" title="Ambassador">Ambassador</a>
-						</li>
-						<li>
-							<a href="declaration" title="Declaration">Declaration</a>
-						</li>
-						<li>
-							<a href="milestones" title="Milestones and Participation">Milestones and Participation</a>
-						</li>
-						<li>
-							<a href="javascript:void(0);" title="WC Stats">WC Stats</a>
-						</li-->
+						
 						<li>
 							<a href="javascript:void(0);" title="<?php echo __("Blogs");?>"><?php echo __("Blogs");?></a>
 						</li>
@@ -103,8 +93,15 @@
 
     
     
-	<?php $this->Html->script(array("jquery.min","bootstrap.min","bootstrap-select")); ?>
-    
+	<?php echo $this->Html->script(array("jquery.min","bootstrap.min","bootstrap-select.min")); ?>
+    <script type="text/javascript">
+		//$("#flashMessage").hide();
+		$(document).ready(function(){
+			if ( $("#flashMessage") ) { 
+				setTimeout(function() { $("#flashMessage").hide(); } , 5000);
+			}
+		});
+    </script>
     <!-- Plugin JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
     
@@ -112,9 +109,11 @@
     <!-- Theme JavaScript -->
     <script>
 		$(function(){
-    $('.selectpicker').selectpicker();
-});
+			$('.selectpicker').selectpicker();
+		});
+		
 	</script>
+	<?php echo $this->element("functions"); ?>
 
 </body>
 

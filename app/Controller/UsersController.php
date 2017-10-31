@@ -17,7 +17,7 @@ class UsersController extends AppController {
 	
 	function beforefilter() {
 		parent::beforefilter();
-		$this->Auth->allow("login");
+		$this->Auth->allow("login","ready_to_signin","signup","forgot_password","reset_password","confirmlink");
 	}
 
 /**
@@ -30,9 +30,185 @@ class UsersController extends AppController {
 		$this->set('users', $this->Paginator->paginate());
 	}
 	
+	public function ready_to_signin(){
 	
+	
+	}
+	
+	function dashboard() {
+		$this->layout = "user";
+		if ( $this->request->is("post") ) {
+			$requestData = $this->request->data;
+			//pr($requestData);
+			//die;
+		    if ($this->User->UserDetail->save($this->request->data)){
+		     $this->Session->setFlash(__("Your account Details has been edited."), 'default', array("class"=>"success_message"));
+			} else {
+				$this->Session->setFlash(__("Your account has not been confirmed successfully."));
+			}
+		}
+	
+	}
+	
+	public function signup($step = 1) {
+		$this->loadModel("DigitalSignature");
+		$this->loadModel("Location");
+		if ($this->Session->read("selectedLanguage.Language.id")) {
+			$languageId = $this->Session->read("selectedLanguage.Language.id");
+		} else {
+			$languageId = 1;
+		}
+		$aprovalForm = $this->DigitalSignature->find("first",array("conditions"=>array("language_id"=>$languageId)));
+		$locations = $this->Location->find("list",array("conditions"=>array("is_active"=>1),"fields"=>array("id","name")));
+		if ( $this->request->is("post") ) {
+			$requestData = $this->request->data;
+			//pr($requestData);
+			//die;
+			if ( $this->request->data['User']['step'] != 3 && isset($this->request->data['User']['tempclientsignature']['tmp_name']) && !empty($this->request->data['User']['tempclientsignature']['tmp_name']) )  { 
+				$im = file_get_contents($this->request->data['User']['tempclientsignature']['tmp_name']);
+				$imdata = base64_encode($im);
+				$this->request->data['User']['clientsignature'] = $requestData['User']['clientsignature'] = $imdata;
+				unset($requestData['User']['tempclientsignature']);
+			}
+			if ( $this->request->data['User']['step'] == 3) {
+				unset($requestData['User']['tempclientsignature']);
+				//$requestData['User']['clientsignature'] = '';
+			}
+			$this->Session->write("step",$requestData);
+			$this->User->set($requestData);
+			$this->loadModel("UserDetail");
+			//pr($requestData);
+			$this->UserDetail->set($requestData);
+			if ( $this->User->validates() && $this->UserDetail->validates() ) {
+				$step = $this->request->data['User']['step'];
+				$step += 1;
+				$this->set("step",$step);
+				
+				$requestData['User']['password'] = $this->Auth->password($requestData['User']['password']);
+				if ( $this->request->data['User']['step'] == 3){
+					$requestData['User']['confirmation_token'] = $confirmToken = $this->encryptpass($requestData['User']['username']);
+					//pr($requestData);
+					//die;
+					$this->User->validate = $this->UserDetail->validate = array();
+					if ( $this->User->saveAll($requestData,array("validates"=>false))) {
+					    $this->Session->destroy($requestData);
+						//die("here");
+						$this->getMailData("SIGNUP_CONFIRMATION");
+						$link = SITE_LINK."confirmlink/".$confirmToken;
+						$this->mailBody = str_replace("{User}",$requestData['UserDetail']['name'],$this->mailBody);
+						$this->mailBody = str_replace("{CLICK_HERE}","<a href='".$link."'>Click Here</a>",$this->mailBody);
+						$this->mailBody = str_replace("{LINK}",$link,$this->mailBody);
+						$this->sendMail($requestData['User']['username']);
+						
+						$this->Session->setFlash(__("Signup is sucessfull, please check your email to confirm your account."), 'default', array("class"=>"success_message"));
+						
+						$this->redirect("/login");
+					} else {
+						$this->Session->destroy();
+						$this->Session->setFlash(__("Signup is not successfull, please try again. "));
+						//pr($this->User->validationErrors);
+						//pr($this->UserDetail->validationErrors);
+						//die("hello");
+					}
+				}
+				
+			} else {
+				$this->set("step",$this->request->data['User']['step']);
+				//pr($this->User->validationErrors);
+				//die;
+				$this->Session->setFlash(__("Problem in your form,please check."));
+			}
+			//$this->User->saveAll($this->request->data);
+		} else {
+			$this->set("step",$step);
+			if ( $this->Session->read("step") ) {
+				//pr($this->Session->read("step".$step));
+				$this->request->data = $this->Session->read("step");
+				
+			}
+			
+		}
+		
+		$this->set(compact('aprovalForm',"locations"));
+}
+	
+	public function confirmlink($token = NULL) {
+		$users = $this->User->find("first",array("conditions"=>array("User.confirmation_token"=>$token,"is_active"=>0),"recursive"=>0));
+		
+		if ( !empty($users) ) {
+			$users['User']['confirmation_token'] = '';
+			$users['User']['is_active'] = 1;
+			$this->User->create();
+			$this->User->id = $users['User']["id"];
+			//pr($users);
+			//die;
+			//$this->User->validates = array();
+			if ($this->User->save($users,array("validate"=>false))){
+				$this->Session->setFlash(__("Your account has been confirmed successfully."), 'default', array("class"=>"success_message"));
+			} else {
+				$this->Session->setFlash(__("Your account has not been confirmed successfully."));
+			}
+
+		} else{
+			$this->Session->setFlash(__("Invalid Link"));
+		}
+		$this->redirect("/login");
+		//$this->render(false);
+	}
+	
+    public function forgot_password() {
+		if ( $this->request->is("post") ) {
+			$users = $this->User->find("first",array("conditions"=>array("User.username"=>$this->request->data['User']['email'],"is_active"=>1),"recursive"=>0));
+			if ( !empty($users) ) {
+				$forgotToken  = $this->encryptpass($users['User']['username']);
+				$users['User']['password_token'] = $forgotToken;
+				if ( $this->User->save($users,array("validate"=>false)) ) {
+					$this->getMailData("FORGOT_PASSWORD");
+					$link = SITE_LINK."reset_password/".$forgotToken;
+					$this->mailBody = str_replace("{User}",$users['UserDetail']['name'],$this->mailBody);
+					$this->mailBody = str_replace("{CLICK_HERE}","<a href='".$link."'>Click Here</a>",$this->mailBody);
+					$this->mailBody = str_replace("{LINK}",$link,$this->mailBody);
+					$this->sendMail($users['User']['username']);
+					$this->Session->setFlash(__("Your request to reset password is submitted, please check your email."), 'default', array("class"=>"success_message"));
+					$this->redirect("/forgot_password");
+					
+				} else {
+					
+					$this->Session->setFlash(__("Your request could not be processed, please try again."));
+				} 
+			} else {
+				$this->Session->setFlash(__("Invalid email for forgot password request."));
+			}
+		}
+	}
+	
+	public function reset_password($token = NULL){
+		$users = $this->User->find("first",array("conditions"=>array("User.password_token"=>$token,"is_active"=>1),"recursive"=>0));
+		//pr($users);
+		if ( !empty($users) ) {
+			if ( $this->request->is("post") ) {
+				$tempData["User"]["password"] = $this->request->data['User']['password'];
+				$tempData["User"]["confirm_password"] = $this->request->data['User']['confirm_password'];
+				$this->User->set($tempData);
+				if ( $this->User->validates() ) {
+					$users['User']['password'] = $this->Auth->password($this->request->data['User']['password']);
+					$users['User']['password_token'] = '';
+					$this->User->save($users,array("validates"=>false));
+					$this->Session->setFlash(__("Your password has been reset successfully."), 'default', array("class"=>"success_message"));
+					$this->redirect("/login");
+				} else {
+					$this->Session->setFlash(__("Request not processed, please try again."));
+				}
+			}
+		} else {
+			$this->Session->setFlash(__("Invalid request."));
+		}
+	
+	}
+     
 	public function login() {
-		//$this->Auth->password("123456");
+		$this->checkLogin();
+		
 		if ( $this->request->is("post") ) {
 			if ( $this->Auth->login() ) {
 				$user = $this->Session->read("Auth");
@@ -43,7 +219,7 @@ class UsersController extends AppController {
 					$this->redirect("/dashboard");
 				}
 			} else {
-				$this->Session->setFlash("Invalid login credentials");
+				$this->Session->setFlash(__("Invalid login credentials"));
 				$this->redirect("/login");
 			}
 		}
@@ -51,10 +227,12 @@ class UsersController extends AppController {
 	
 	public function logout() {
 		$this->Auth->logout();
+		$this->Session->destroy();
 		$this->redirect("/login");
 	}
 	
 	function admin_dashboard() {
+		
 		//die("here");
 	}
 	

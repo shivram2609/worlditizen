@@ -35,7 +35,7 @@ class Language extends AppModel {
 		"name" => array (
 			"notempty" => array (
 				"rule" => "notBlank",
-				"message" => "Please enter location name."
+				"message" => "Please enter language name."
 			)
 		),
 		"short_code" => array (

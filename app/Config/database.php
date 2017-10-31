@@ -70,7 +70,7 @@ class DATABASE_CONFIG {
 		'datasource' => 'Database/Mysql',
 		'persistent' => false,
 		'host' => 'localhost',
-		//'login' => 'zestminds_wc',
+		//'login' => 'zestmind_wc',
 		'login' => 'root',
 		'password' => '123456',
 		'database' => 'wc',

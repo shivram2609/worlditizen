@@ -1,0 +1,6 @@
+<?php $temp =  $aprovalForm['DigitalSignature']['content']; 
+					$temp = str_replace("{CLIENTNAME}",$this->Form->input('clientname',array("div"=>false,"label"=>false)),$temp);
+					$temp = str_replace("{CLIENTSIGNATURE}",$this->Form->file('tempclientsignature',array("div"=>false,"label"=>false)),$temp);
+					$temp = str_replace("{DATE}",date("Y-m-d"),$temp);
+					echo $temp;
+					?>

@@ -28,13 +28,13 @@ class CmsPage extends AppModel {
 		"content" => array (
 			"notempty" => array (
 				"rule" => "notBlank",
-				"message" => "Please enter title."
+				"message" => "Please enter content."
 			)
 		),
 		"slug" => array (
 			"notempty" => array (
 				"rule" => "notBlank",
-				"message" => "Please enter content."
+				"message" => "Please enter slug."
 			)
 		),
 		"seo_url" => array (

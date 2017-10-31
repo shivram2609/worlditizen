@@ -1,63 +1,251 @@
 msgid "CLICK HERE"
-msgstr "CLICK HERE"
+msgstr "לחץ כאן"
 
 msgid "Read"
-msgstr "Read"
+msgstr "לקרוא"
 
 msgid "Ready to Sign"
-msgstr "Ready to Sign"
-
+msgstr "מוכן לחתום"
 
 msgid "The Social Contract"
-msgstr "The Social Contract"
+msgstr "החוזה החברתי"
 
 msgid "Learn More"
-msgstr "Learn More"
+msgstr "למד עוד"
 
 msgid "about Social Contract"
-msgstr "about Social Contract"
+msgstr "על חוזה חברתי"
 
 msgid "Choose your language"
-msgstr "Choose your language"
+msgstr "בחר את השפה שלך"
 
 msgid "© 2017 World Citizen. All Rights Reserved."
-msgstr "© 2017 World Citizen. All Rights Reserved."
+msgstr "© 2007 אזרח העולם. כל הזכויות שמורות."
 
 msgid "Follow Us On:"
-msgstr "Follow Us On:"
+msgstr "עקבו אחרינו ב:"
 
 msgid "Blogs"
 msgstr "בלוגים"
 
-
 msgid "Contact Us"
-msgstr "Contact Us"
+msgstr "תיצור איתנו קשר"
 
 msgid "FAQ’s"
-msgstr "FAQ’s"
+msgstr "שאלות נפוצות"
 
 msgid "It takes less than a minute"
-msgstr "It takes less than a minute"
-
+msgstr "זה לוקח פחות מדקה"
 
 msgid "Don’t have an account?"
-msgstr "Don’t have an account?"
-
+msgstr "אין לך חשבון?"
 
 msgid "Sign Up Now"
-msgstr "Sign Up Now"
+msgstr "הרשם עכשיו"
 
 msgid "Sign In"
-msgstr "Sign In"
+msgstr "היכנס"
 
 msgid "Email"
-msgstr "Email"
+msgstr "אֶלֶקטרוֹנִי"
 
 msgid "Password"
-msgstr "Password"
+msgstr "סיסמה"
 
 msgid "Remember Me"
-msgstr "Remember Me"
+msgstr "זכור אותי"
 
 msgid "Forgot Password?"
-msgstr "Forgot Password?"
+msgstr "שכחת את הסיסמא?"
+
+msgid "Enter your email below to receive your password reset instructions"
+msgstr "הזן את האימייל שלך למטה כדי לקבל את ההוראות לאיפוס הסיסמה שלך"
+
+msgid  "Send Password"
+msgstr "שלח סיסמה"
+
+msgid "Home"
+msgstr "בית"
+
+msgid "Social Contract"
+msgstr "חוזה חברתי"
+
+msgid "The World Citizen"
+msgstr "אזרח העולם"
+
+msgid "I recognize humanity's birth right to live on this planet according to Natural Law and hereby SERVE NOTICE of my LAWFUL STATUS as a World Citizen."
+msgstr "אני מזהה את זכות הלידה של האנושות לחיות על הפלנטה הזאת על פי חוק הטבע ומשרת בזאת הודעה על מעמדי החוקי כאזרח העולם."
+
+msgid "By doing so, all such contracts injurious to my birth right are hereby DECLARED NULL AND VOID."
+msgstr "בעשותם כן, כל החוזים האלה פוגעים בזכות הלידה שלי מצוירים בזאת את החסר ואת החסר."
+
+msgid "From this day forward I commit to the Golden Rule and AFFIRM MY OBLIGATIONS to honour The Golden Rule., in doing so I will;"
+msgstr "מהיום הזה אני מתחייב לכלל הזהב ולכבד את חובותי לכבד את כלל הזהב.;"
+
+msgid "Respect and protect my own Natural Rights without exception."
+msgstr "לכבד ולהגן על הזכויות הטבעיות שלי ללא יוצא מן הכלל."
+
+msgid "Respect and protect the Natural Rights of every other human being"
+msgstr "לכבד ולהגן על הזכויות הטבעיות של כל אדם אחר"
+
+msgid "Respect and protect planet Earth for future generations."
+msgstr "לכבד ולהגן על כדור הארץ לדורות הבאים."
+
+msgid "Sign Up"
+msgstr "הירשם"
+
+msgid "Personal Information"
+msgstr "מידע אישי"
+
+msgid "Name"
+msgstr "שֵׁם"
+
+msgid "Phone"
+msgstr "טלפון"
+
+msgid "Confirm Password"
+msgstr "אשר סיסמה"
+
+msgid "Address"
+msgstr "כתובת"
+
+msgid "City"
+msgstr "עִיר"
+
+msgid "State"
+msgstr "מדינה"
+
+msgid "Zip"
+msgstr "רוכסן" 
+
+msgid "I agree to"
+msgstr "אני מסכים ל"
+
+msgid "Terms of Services"
+msgstr "תנאי השירות"
+
+msgid "Already have an account?"
+msgstr "כבר יש לך חשבון?"
+
+msgid "Sign In Now"
+msgstr "היכנס עכשיו"
+
+msgid "READY TO SIGN IN"
+msgstr "מוכן להיכנס"
+
+msgid "DONATE"
+msgstr "לִתְרוֹם"
+
+msgid "AS YOUR WISH"
+msgstr "כרצונך"
+
+msgid "DONATE FUNDS"
+msgstr "לתרום כספים"
+
+msgid "OF ANY AMOUNT"
+msgstr "של כל סכום"
+
+msgid "Simple Payment Option"
+msgstr "אפשרות תשלום פשוטה"
+
+msgid "No Personal Info Required except email"
+msgstr "אין מידע אישי נדרש למעט דוא"
+
+msgid "Check Box Option for Email Opt Out"
+msgstr "אפשרות תיבה לסימון דואר אלקטרוני"
+
+msgid "BECOME"
+msgstr "הפכו"
+
+msgid "A WORLD CITIZEN"
+msgstr "אזרח בעולם"
+
+msgid "PAY ONE TIME FEE (OR WAIVED)"
+msgstr "תשלום חד פעמי (או ויתור)"
+
+msgid "Agrees and Digitally Signs Social Contract"
+msgstr "מסכים וחתימה דיגיטלית על חוזה חברתי"
+
+msgid "Completes Data form / Upload Picture"
+msgstr "משלים טופס נתונים / העלה תמונה"
+
+msgid "Add a WC mailing list"
+msgstr "הוסף רשימת דיוור של WC"
+
+msgid "Gains entry to WC social media forum"
+msgstr "רווחי כניסה למדיה חברתית"
+
+msgid "Generate a ‘x-number’ person affiliate link"
+msgstr "צור 'x-number' קישור שותפים"
+
+msgid "Your request to reset password is submitted, please check your email."
+msgstr "הבקשה שלך לאיפוס הסיסמה נשלחה, בדוק את האימייל שלך."
+
+msgid "Your request could not be processed, please try again."
+msgstr "לא ניתן לעבד את בקשתך, נסה שוב. "
+
+msgid "Invalid email for forgot password request."
+msgstr "הודעת אימייל לא חוקית עבור בקשת סיסמה שכחה."
+
+msgid "Invalid login credentials"
+msgstr "פרטי כניסה לא חוקיים"
+
+
+msgid "Donate Now"
+msgstr "תרום עכשיו"
+
+msgid "continue"
+msgstr "המשך"
+
+msgid "Please enter email."
+msgstr "אנא הכנס דוא"
+
+msgid "Please enter valid email"
+msgstr "אנא הכנס כתובת דוקית"
+
+msgid "email is already in use."
+msgstr "הדוכבר נמצא בשימושא"
+
+msgid "Please enter Password."
+msgstr "אנא הכנס סיסמה"
+
+msgid "Your password must be between 6 and 20 characters."
+msgstr "על הסיסמה להיות בין 6 ל -20 תווים."
+
+msgid "Please enter confirm Password."
+msgstr "אנא הזן את הסיסמה."
+
+msgid "Passwords do not match"
+msgstr "סיסמאות לא תואמות"
+
+msgid "Please enter client name."
+msgstr "הזן שם לקוח."
+
+msgid "Back"
+msgstr "חזור"
+
+msgid "Please enter Name."
+msgstr "הזן שם."
+
+
+msgid "Please enter phone."
+msgstr "הזן טלפון."
+
+
+msgid "Please enter Address."
+msgstr "הזן כתובת."
+
+
+msgid "Please Select State."
+msgstr "בחר מדינה."
+
+
+msgid "Please Select city."
+msgstr "בחר עיר."
+
+
+msgid "Please Select zip code."
+msgstr "בחר מיקוד."
+
+
+

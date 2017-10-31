@@ -61,3 +61,226 @@ msgstr "Remember Me"
 
 msgid "Forgot Password?"
 msgstr "Forgot Password?"
+
+msgid "Enter your email below to receive your password reset instructions"
+msgstr "Enter your email below to receive your password reset instructions"
+
+msgid  "Send Password"
+msgstr "Send Password"
+
+msgid "Home"
+msgstr "Home"
+
+msgid "Social Contract"
+msgstr "Social Contract"
+
+
+
+msgid "I recognize humanity's birth right to live on this planet according to Natural Law and hereby SERVE NOTICE of my LAWFUL STATUS as a World Citizen."
+msgstr "I recognize humanity's birth right to live on this planet according to Natural Law and hereby SERVE NOTICE of my LAWFUL STATUS as a World Citizen."
+
+msgid "By doing so, all such contracts injurious to my birth right are hereby DECLARED NULL AND VOID."
+msgstr "By doing so, all such contracts injurious to my birth right are hereby DECLARED NULL AND VOID."
+
+msgid "From this day forward I commit to the Golden Rule and AFFIRM MY OBLIGATIONS to honour The Golden Rule., in doing so I will;"
+msgstr "From this day forward I commit to the Golden Rule and AFFIRM MY OBLIGATIONS to honour The Golden Rule., in doing so I will;"
+
+
+msgid "Respect and protect my own Natural Rights without exception."
+msgstr "Respect and protect my own Natural Rights without exception."
+
+msgid "Respect and protect the Natural Rights of every other human being"
+msgstr "Respect and protect the Natural Rights of every other human being"
+
+msgid "Respect and protect planet Earth for future generations."
+msgstr "Respect and protect planet Earth for future generations."
+
+
+msgid "Sign Up"
+msgstr "Sign Up"
+
+msgid "Personal Information"
+msgstr "Personal Information"
+
+msgid "Name"
+msgstr "Name"
+
+
+msgid "Phone"
+msgstr "Phone"
+
+msgid "Email"
+msgstr "Email"
+
+msgid "Password"
+msgstr "Password"
+
+msgid "Confirm Password"
+msgstr "Confirm Password"
+
+msgid "Address"
+msgstr "Address"
+
+
+msgid "City"
+msgstr "City"
+
+msgid "State"
+msgstr "State"
+
+msgid "Zip"
+msgstr "Zip" 
+
+msgid "I agree to"
+msgstr "I agree to"
+
+msgid "Terms of Services"
+msgstr "Terms of Services"
+
+
+msgid "Already have an account?"
+msgstr "Already have an account?"
+
+
+
+msgid "Sign In Now"
+msgstr "Sign In Now"
+
+msgid "READY TO SIGN IN"
+msgstr "READY TO SIGN IN"
+
+msgid "DONATE"
+msgstr "DONATE"
+
+
+msgid "AS YOUR WISH"
+msgstr "AS YOUR WISH"
+
+msgid "DONATE FUNDS"
+msgstr "DONATE FUNDS"
+
+msgid "OF ANY AMOUNT"
+msgstr "OF ANY AMOUNT"
+
+msgid "Simple Payment Option"
+msgstr "Simple Payment Option"
+
+
+msgid "No Personal Info Required except email"
+msgstr "No Personal Info Required except email"
+
+
+
+msgid "Check Box Option for Email Opt Out"
+msgstr "Check Box Option for Email Opt Out"
+
+
+msgid "BECOME"
+msgstr "BECOME"
+
+msgid "A WORLD CITIZEN"
+msgstr "A WORLD CITIZEN"
+
+
+msgid "PAY ONE TIME FEE (OR WAIVED)"
+msgstr "PAY ONE TIME FEE (OR WAIVED)"
+
+
+
+msgid "Agrees and Digitally Signs Social Contract"
+msgstr "Agrees and Digitally Signs Social Contract"
+
+
+msgid "Completes Data form / Upload Picture"
+msgstr "Completes Data form / Upload Picture"
+
+
+msgid "Add a WC mailing list"
+msgstr "Add a WC mailing list"
+
+
+msgid "Gains entry to WC social media forum"
+msgstr "Gains entry to WC social media forum"
+
+
+msgid "Generate a ‘x-number’ person affiliate link"
+msgstr "Generate a ‘x-number’ person affiliate link"
+
+msgid "Your request to reset password is submitted, please check your email."
+msgstr "Your request to reset password is submitted, please check your email."
+
+msgid "Your request could not be processed, please try again."
+msgstr "Your request could not be processed, please try again."
+
+msgid "Invalid email for forgot password request."
+msgstr "Invalid email for forgot password request."
+
+msgid "Invalid login credentials"
+msgstr "Invalid login credentials"
+
+
+msgid "Donate Now"
+msgstr "Donate Now"
+
+msgid "continue"
+msgstr "continue"
+
+msgid "Please enter email."
+msgstr "Please enter email."
+
+msgid "Please enter valid email."
+msgstr "Please enter valid email."
+
+
+msgid "email is already in use."
+msgstr "email is already in use."
+
+msgid "Please enter Password."
+msgstr "Please enter Password."
+
+msgid "Your password must be between 6 and 20 characters."
+msgstr "Your password must be between 6 and 20 characters."
+
+msgid "Please enter confirm Password."
+msgstr "Please enter confirm Password."
+
+msgid "Passwords do not match"
+msgstr "Passwords do not match"
+
+msgid "Please enter client name."
+msgstr "Please enter client name."
+
+msgid "Please select signature."
+msgstr "Please select signature."
+
+msgid "Back"
+msgstr "Back"
+
+msgid "Please enter Name."
+msgstr "Please enter Name."
+
+
+msgid "Please enter phone."
+msgstr "Please enter phone."
+
+
+msgid "Please enter Address."
+msgstr "Please enter Address."
+
+
+msgid "Please Select State."
+msgstr "Please Select State."
+
+
+msgid "Please Select city."
+msgstr "Please Select city."
+
+
+msgid "Please Select zip code."
+msgstr "Please Select zip code."
+
+
+
+
+
+

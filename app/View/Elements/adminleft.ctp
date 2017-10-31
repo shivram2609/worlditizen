@@ -30,7 +30,13 @@ if ($this->Session->read("Auth.User.id") && $this->Session->read("Auth.User.is_a
 					<a href="<?php echo $this->Html->url(SITE_LINK.'ad-languages'); ?>" <?php if ($this->params['controller'] == 'languages') { ?> class="active" <?php } ?>>Languages</a>
 				</li> 
 				<li>
-					<a href="<?php echo $this->Html->url(SITE_LINK.'ad-users'); ?>" <?php if ($this->params['controller'] == 'users') { ?> class="active" <?php } ?> >Users </a>
+					<a href="<?php echo $this->Html->url(SITE_LINK.'ad-users'); ?>" <?php if ($this->params['controller'] == 'users'  && $this->params['action'] == 'admin_index' ) { ?> class="active" <?php } ?> >Users </a>
+				</li>
+				<li>
+					<a href="<?php echo $this->Html->url(SITE_LINK.'ad-emailtemplates'); ?>" <?php if ($this->params['controller'] == 'emailtemplates') { ?> class="active" <?php } ?> >Email </a>
+				</li>
+				<li>
+					<a href="<?php echo $this->Html->url(SITE_LINK.'ad-digitalsignatures'); ?>" <?php if ($this->params['controller'] == 'digitalsignatures') { ?> class="active" <?php } ?> >Digital Sign </a>
 				</li>
 				 
 			</ul>
